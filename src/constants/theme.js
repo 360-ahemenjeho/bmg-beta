@@ -4,7 +4,7 @@ export const fontSizes = {
   h1: "25px",
   h2: "20.96px",
   h3: "16px",
-  caption: "13px",
+  caption: "12px",
   body1: "14px",
   body2: "14px",
 };
@@ -438,8 +438,8 @@ export const borderColors = {
 export const foregroundColors = {
   light: {
     primary: "#000000",
-    secondary: "#63658F",
-    tertiary: "#A1A3C3",
+    secondary: "#76778b",
+    tertiary: "#b2b4c7",
   },
   dark: {
     primary: "#000000",
@@ -631,3 +631,66 @@ export const radiusTokens = {
 export const inputHeight = "34px";
 export const dashboardNavHeight = "40px";
 export const dashboardSidebarWidth = "220px";
+
+export const statusColors = {
+  light: {
+    primary: {
+      primary: "#2C3891",
+      secondary: "#EFF0F0",
+    },
+    success: {
+      primary: "#05970F",
+      secondary: "#EFF0F0",
+    },
+    error: {
+      primary: "#FF0004",
+      secondary: "#EFF0F0",
+    },
+    warning: {
+      primary: "#F7941D",
+      secondary: "#EFF0F0",
+    },
+    info: {
+      primary: "#13ABBC",
+      secondary: "#EFF0F0",
+    },
+    secondary: {
+      primary: "#0A62C7",
+      secondary: "#EFF0F0",
+    },
+    neutral: {
+      primary: "#7DBBFF",
+      secondary: "#EFF0F0",
+    },
+  },
+  dark: {
+    primary: {
+      primary: "#2C3891",
+      secondary: "#EFF0F0",
+    },
+    success: {
+      primary: "#05970F",
+      secondary: "#EFF0F0",
+    },
+    error: {
+      primary: "#FF0004",
+      secondary: "#EFF0F0",
+    },
+    warning: {
+      primary: "#F7941D",
+      secondary: "#EFF0F0",
+    },
+    info: {
+      primary: "#13ABBC",
+      secondary: "#EFF0F0",
+    },
+    secondary: {
+      primary: "#0A62C7",
+      secondary: "#EFF0F0",
+    },
+    neutral: {
+      primary: "#7DBBFF",
+      secondary: "#EFF0F0",
+    },
+  },
+};

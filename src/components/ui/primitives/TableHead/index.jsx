@@ -7,11 +7,16 @@ export default function TableHead({ children }) {
       <TableRow>
         {children?.map((column, index) => (
           <TableCell key={index} align={column.align}>
-            <Stack gap={spacing[1]} direction="row" alignItems="center">
+            <Stack
+              gap={spacing[1]}
+              direction="row"
+              alignItems="center"
+              justifyContent={column.align === "right" ? "flex-end" : "flex-start"}
+            >
               {column?.icon && (
                 <column.icon fontSize={14} style={{ color: "inherit !important" }} />
               )}
-              {column.label}
+              <span style={{ fontSize: "inherit", color: "inherit" }}>{column.label}</span>
             </Stack>
           </TableCell>
         ))}

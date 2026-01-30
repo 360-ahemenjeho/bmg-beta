@@ -1,12 +1,15 @@
-import { dashboardNavHeight, dashboardSidebarWidth, spacingTokens } from "@/constants/theme";
+import { dashboardNavHeight, spacingTokens } from "@/constants/theme";
 import { useColor } from "@/contexts/color";
-import { ListFilled } from "@fluentui/react-icons";
-import { Box, Stack, Typography } from "@mui/material";
+import { NavigationFilled } from "@fluentui/react-icons";
+import { Box, Stack, useMediaQuery, useTheme } from "@mui/material";
 import Avatar from "./Avatar";
 import Notification from "./Notification";
+import QuickNavigation from "./QuickNavigation";
 
 export default function Navbar({ onToggle }) {
   const { bg, border } = useColor();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <Box
@@ -21,17 +24,18 @@ export default function Navbar({ onToggle }) {
         justifyContent: "space-between",
         boxSizing: "border-box",
         px: spacingTokens.md,
+        zIndex: theme.zIndex.appBar,
       }}
     >
-      <Stack direction="row" alignItems="center">
-        <Box sx={{ display: { xs: "block", md: "none" }, cursor: "pointer" }} onClick={onToggle}>
-          <ListFilled fontSize={22} />
-        </Box>
-        <Typography variant="body2" noWrap component="div" sx={{ flexGrow: 1, fontWeight: 600 }}>
-          Dashboard
-        </Typography>
-      </Stack>
       <Stack direction="row" alignItems="center" gap={spacingTokens.sm}>
+        <NavigationFilled
+          fontSize={22}
+          onClick={onToggle}
+          style={{ display: isMobile ? "block" : "none" }}
+        />
+        <QuickNavigation />
+      </Stack>
+      <Stack direction="row" alignItems="center" gap={spacingTokens.md}>
         <Notification />
         <Avatar />
       </Stack>

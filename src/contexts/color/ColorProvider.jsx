@@ -10,6 +10,7 @@ import {
   mainColors,
   menuColors,
   menuItemColors,
+  statusColors,
 } from "@/constants/theme";
 import ColorContext from "./ColorContext";
 
@@ -42,6 +43,7 @@ export default function ColorProvider({ children }) {
     main: mainColors[theme],
     menu: menuColors[theme],
     menuItem: menuItemColors[theme],
+    status: statusColors[theme],
   };
 
   return <ColorContext.Provider value={value}>{children}</ColorContext.Provider>;

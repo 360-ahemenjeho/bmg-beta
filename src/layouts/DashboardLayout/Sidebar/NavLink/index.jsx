@@ -11,9 +11,9 @@ export default function NavLink({ nav, onNavigate, active }) {
         alignItems: "center",
         gap: spacingTokens.sm,
         width: "100%",
-        fontSize: "13px",
+        fontSize: "12px",
         fontWeight: 500,
-        padding: "4px 18px",
+        padding: "6px 18px",
         lineHeight: 1,
         backgroundColor: active ? "#EDEDED" : "transparent",
         boxShadow: active ? "1px 1px 1px rgba(0, 0, 0, 0.25)" : "none",
@@ -26,7 +26,7 @@ export default function NavLink({ nav, onNavigate, active }) {
       }}
     >
       <Box>
-        <nav.icon fontSize={18} />
+        <nav.icon fontSize={22} />
       </Box>
       {nav?.label}
     </Box>

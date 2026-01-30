@@ -6,16 +6,16 @@ export default function Notification({ count = 7 }) {
   const { main } = useColor();
   return (
     <Box sx={{ position: "relative" }}>
-      <AlertRegular fontSize={24} style={{ display: "block" }} />
+      <AlertRegular fontSize={22} style={{ display: "block" }} />
       {count > 0 && (
         <Box
           sx={{
             position: "absolute",
-            height: "20px",
-            width: "20px",
+            height: "18px",
+            width: "18px",
             borderRadius: "999px",
-            top: "-5px",
-            right: "-5px",
+            top: "-4.5px",
+            right: "-4.5px",
             backgroundColor: main.primary,
             display: "flex",
             alignItems: "center",
@@ -26,7 +26,7 @@ export default function Notification({ count = 7 }) {
             lineHeight: 0,
           }}
         >
-          {count < 99 ? count : "99+"}
+          {count < 9 ? count : "9+"}
         </Box>
       )}
     </Box>

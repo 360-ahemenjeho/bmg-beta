@@ -20,7 +20,6 @@ export default function Button({
       sx={{
         borderRadius: radius[round],
         gap: spacing[1],
-        boxShadow: color === "secondary" ? "1px 1px 1px rgba(0, 0, 0, 0.25) !important" : "none",
       }}
     >
       {startContent && startContent}

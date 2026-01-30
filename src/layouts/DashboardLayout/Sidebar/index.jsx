@@ -1,22 +1,15 @@
 import { Box, Stack } from "@mui/material";
-import {
-  AlignBottomFilled,
-  PeopleFilled,
-  SignOutRegular,
-  TopSpeedFilled,
-} from "@fluentui/react-icons";
-import { useEffect, useRef, useState } from "react";
+import { SignOutRegular } from "@fluentui/react-icons";
+import { useEffect, useRef } from "react";
 import { spacingTokens } from "@/constants/theme";
 import NavLink from "./NavLink";
-
-const menuItems = [
-  { label: "Dashboard", icon: TopSpeedFilled },
-  { label: "Users", icon: PeopleFilled },
-  { label: "Analytics", icon: AlignBottomFilled },
-];
+import { useNavigationMenu } from "@/hooks/config/navigation";
+import { useLocation } from "react-router-dom";
 
 export default function Sidebar({ setWidth }) {
   const navRef = useRef(null);
+  const menu = useNavigationMenu();
+  const { pathname } = useLocation();
 
   useEffect(() => {
     if (navRef.current) {
@@ -39,8 +32,14 @@ export default function Sidebar({ setWidth }) {
           gap: spacingTokens.sm,
         }}
       >
-        {menuItems.map((item, index) => (
-          <NavLink key={index} nav={item} active={index === 0} />
+        {menu.map((item, index) => (
+          <NavLink
+            key={index}
+            nav={item}
+            active={
+              item.path === pathname || item?.sub?.some((subItem) => subItem.path === pathname)
+            }
+          />
         ))}
       </Box>
       <Stack

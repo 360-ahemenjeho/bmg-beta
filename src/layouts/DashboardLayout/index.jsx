@@ -17,7 +17,7 @@ export default function DashboardLayout({ children }) {
   }
 
   return (
-    <Box display="flex">
+    <Box>
       <Drawer
         variant={isMobile ? "temporary" : "permanent"}
         open={isMobile ? mobileOpen : true}
@@ -38,7 +38,14 @@ export default function DashboardLayout({ children }) {
         <Sidebar setWidth={setSidebarWidth} />
       </Drawer>
 
-      <Box sx={{ minHeight: "100vh", flexGrow: 1, pl: { xs: 0, md: `${sidebarWidth}px` } }}>
+      <Box
+        sx={{
+          minHeight: "100vh",
+          flexGrow: 1,
+          ml: { xs: 0, md: `${sidebarWidth}px` },
+          width: { xs: "100%", md: `calc(100% - ${sidebarWidth}px)` },
+        }}
+      >
         <Navbar onToggle={toggleDrawer} />
         <Box
           component="main"

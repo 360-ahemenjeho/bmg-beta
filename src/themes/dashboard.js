@@ -11,24 +11,24 @@ import { ChevronDownFilled } from "@fluentui/react-icons";
 import { createTheme, responsiveFontSizes } from "@mui/material";
 
 function configureTheme({
-  colors: { fg, bg, border, mode, scrollbar, button, input, main, menu, menuItem },
+  colors: { fg, bg, border, mode, scrollbar, button, input, main, menu, menuItem, status },
 }) {
   const theme = createTheme({
     typography: {
       fontFamily: typefaces.default,
       h1: {
         fontSize: fontSizes.h1,
-        fontWeight: 700,
+        fontWeight: 600,
         lineHeight: 1.5,
       },
       h2: {
         fontSize: fontSizes.h2,
-        fontWeight: 700,
+        fontWeight: 600,
         lineHeight: 1.5,
       },
       h3: {
         fontSize: fontSizes.h3,
-        fontWeight: 700,
+        fontWeight: 600,
         lineHeight: 1.5,
       },
       caption: {
@@ -99,24 +99,24 @@ function configureTheme({
             borderStyle: "none",
             boxSizing: "border-box",
             "&.MuiButton-sizeLarge": {
-              fontSize: "16px",
-              padding: "0.8rem 1.5rem",
-              "& > *": {
-                fontSize: "16px",
-              },
-            },
-            "&.MuiButton-sizeMedium": {
               fontSize: "15px",
-              padding: "0.7rem 1.5rem",
+              padding: "1rem 1.25rem",
               "& > *": {
                 fontSize: "15px",
               },
             },
-            "&.MuiButton-sizeSmall": {
+            "&.MuiButton-sizeMedium": {
               fontSize: "14px",
-              padding: "0.5rem 1.5rem",
+              padding: "0.9rem 1.25rem",
               "& > *": {
                 fontSize: "14px",
+              },
+            },
+            "&.MuiButton-sizeSmall": {
+              fontSize: "13px",
+              padding: "0.8rem 1.25rem",
+              "& > *": {
+                fontSize: "13px",
               },
             },
             gap: spacing[1],
@@ -159,6 +159,7 @@ function configureTheme({
               borderColor: button["secondary"]["default"]["border"]["normal"],
               backgroundColor: button["secondary"]["default"]["bg"]["normal"],
               color: button["secondary"]["default"]["fg"]["normal"],
+              boxShadow: "1px 1px 1px rgba(0, 0, 0, 0.25) !important",
               "&:hover": {
                 borderColor: button["secondary"]["default"]["border"]["hover"],
                 backgroundColor: button["secondary"]["default"]["bg"]["hover"],
@@ -553,14 +554,13 @@ function configureTheme({
           root: {
             borderBottom: `1px solid ${mode === "light" ? "rgba(0,0,0,0.12)" : "rgba(220,220,255,0.12)"}`,
             whiteSpace: "nowrap",
-            padding: `8px ${spacing[3]}`,
+            padding: `6px ${spacing[3]}`,
           },
           head: {
-            padding: `10px ${spacing[3]}`,
+            padding: `8px ${spacing[3]}`,
             lineHeight: 1,
-            fontSize: "10px",
+            fontSize: "12px",
             whiteSpace: "nowrap",
-            textTransform: "uppercase",
             fontWeight: 500,
             backgroundColor: mode == "light" ? "#8F8D8D" : "#8F8D8D33",
             borderBottom: "none",
@@ -583,6 +583,127 @@ function configureTheme({
             },
             "& td": {
               overflow: "hidden",
+            },
+          },
+        },
+      },
+      MuiChip: {
+        defaultProps: {
+          clickable: false,
+          color: "primary",
+        },
+        styleOverrides: {
+          root: {
+            width: "fit-content",
+            height: "21px",
+            fontWeight: 500,
+            boxShadow: "1px 1px 1px rgba(0, 0, 0, 0.25)",
+            fontSize: "13px",
+            borderRadius: spacingTokens.xs,
+            "& .MuiChip-icon": {
+              fontSize: "18px",
+              lineHeight: 1,
+            },
+            "&.MuiChip-outlined": {
+              borderStyle: "solid",
+              borderWidth: "0",
+            },
+
+            // SUCCESS
+            [`&.MuiChip-colorSuccess`]: {
+              backgroundColor: status.success.primary,
+              "& * ": {
+                color: "#ffffff",
+              },
+            },
+            [`&.MuiChip-colorSuccess.MuiChip-outlined`]: {
+              backgroundColor: status.success.secondary,
+              "& *": {
+                color: status.success.primary,
+              },
+            },
+
+            // ERROR
+            [`&.MuiChip-colorError`]: {
+              backgroundColor: status.error.primary,
+              "& *": {
+                color: "#ffffff",
+              },
+            },
+            [`&.MuiChip-colorError.MuiChip-outlined`]: {
+              backgroundColor: status.error.secondary,
+              "& *": {
+                color: status.error.primary,
+              },
+            },
+
+            // WARNING
+            [`&.MuiChip-colorWarning`]: {
+              backgroundColor: status.warning.primary,
+              "& *": {
+                color: "#ffffff",
+              },
+            },
+            [`&.MuiChip-colorWarning.MuiChip-outlined`]: {
+              backgroundColor: status.warning.secondary,
+              "& *": {
+                color: status.warning.primary,
+              },
+            },
+
+            // INFO
+            [`&.MuiChip-colorInfo`]: {
+              backgroundColor: status.info.primary,
+              "& *": {
+                color: "#ffffff",
+              },
+            },
+            [`&.MuiChip-colorInfo.MuiChip-outlined`]: {
+              backgroundColor: status.info.secondary,
+              "& *": {
+                color: status.info.primary,
+              },
+            },
+
+            // PRIMARY
+            [`&.MuiChip-colorPrimary`]: {
+              backgroundColor: status.primary.primary,
+              "& *": {
+                color: "#ffffff",
+              },
+            },
+            [`&.MuiChip-colorPrimary.MuiChip-outlined`]: {
+              backgroundColor: status.primary.secondary,
+              "& *": {
+                color: status.primary.primary,
+              },
+            },
+
+            // NEUTRAL
+            [`&.MuiChip-colorNeutral`]: {
+              backgroundColor: status.neutral.primary,
+              "& *": {
+                color: "#ffffff",
+              },
+            },
+            [`&.MuiChip-colorNeutral.MuiChip-outlined`]: {
+              backgroundColor: status.neutral.secondary,
+              "& *": {
+                color: status.neutral.primary,
+              },
+            },
+            // SECONDARY
+            [`&.MuiChip-colorSecondary`]: {
+              backgroundColor: status.secondary.primary,
+              "& *": {
+                color: "#ffffff",
+              },
+            },
+            [`&.MuiChip-colorSecondary.MuiChip-outlined`]: {
+              backgroundColor: status.secondary.secondary,
+              "& *": {
+                color: status.secondary.primary,
+              },
             },
           },
         },

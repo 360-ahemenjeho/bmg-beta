@@ -17,6 +17,7 @@ function App() {
     main,
     menu,
     menuItem,
+    status,
   } = useColor();
   const theme = useMemo(
     () =>
@@ -32,9 +33,10 @@ function App() {
           main,
           menu,
           menuItem,
+          status,
         },
       }),
-    [bg, fg, border, mode, scrollbar, button, input, main, menu, menuItem],
+    [bg, fg, border, mode, scrollbar, button, input, main, menu, menuItem, status],
   );
 
   return (

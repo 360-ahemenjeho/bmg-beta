@@ -13,6 +13,7 @@ import {
   MailFilled,
   PersonFilled,
   ShieldFilled,
+  VideoFilled,
 } from "@fluentui/react-icons";
 import {
   Stack,
@@ -24,6 +25,7 @@ import {
   MenuItem,
   TableRow,
   TableCell,
+  Chip,
 } from "@mui/material";
 
 export default function DesignSystemPage() {
@@ -121,6 +123,30 @@ export default function DesignSystemPage() {
           ))}
         </TableBody>
       </Table>
+
+      <Box py="20px" width="70%" mx="auto">
+        <Stack gap="12px">
+          <Typography variant="h2">Chips - Filled</Typography>
+          <Stack direction="row" gap="8px" flexWrap="wrap">
+            <Chip label="Primary" icon={<CircleSmallFilled />} />
+            <Chip label="Secondary" icon={<CircleSmallFilled />} color="secondary" />
+            <Chip label="Error" color="error" />
+            <Chip label="Warning" color="warning" />
+            <Chip label="Info" color="info" />
+            <Chip label="Success" color="success" />
+          </Stack>
+
+          <Typography variant="h2">Chips - Outlined</Typography>
+          <Stack direction="row" gap="8px" flexWrap="wrap">
+            <Chip label="Primary" variant="outlined" />
+            <Chip icon={<VideoFilled />} label="Secondary" variant="outlined" color="secondary" />
+            <Chip label="Error" variant="outlined" color="error" />
+            <Chip label="Warning" variant="outlined" color="warning" />
+            <Chip label="Info" variant="outlined" color="info" />
+            <Chip label="Success" variant="outlined" color="success" />
+          </Stack>
+        </Stack>
+      </Box>
     </>
   );
 }
