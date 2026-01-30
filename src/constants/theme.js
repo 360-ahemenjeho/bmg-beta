@@ -630,7 +630,6 @@ export const radiusTokens = {
 
 export const inputHeight = "34px";
 export const dashboardNavHeight = "40px";
-export const dashboardSidebarWidth = "220px";
 
 export const statusColors = {
   light: {

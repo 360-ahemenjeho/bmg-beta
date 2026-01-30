@@ -13,7 +13,7 @@ export default function NavLink({ nav, onNavigate, active }) {
         width: "100%",
         fontSize: "12px",
         fontWeight: 500,
-        padding: "6px 18px",
+        padding: "6px 32px",
         lineHeight: 1,
         backgroundColor: active ? "#EDEDED" : "transparent",
         boxShadow: active ? "1px 1px 1px rgba(0, 0, 0, 0.25)" : "none",

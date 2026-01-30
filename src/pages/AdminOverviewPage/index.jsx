@@ -4,6 +4,7 @@ import { Stack } from "@mui/material";
 import { spacingTokens } from "@/constants/theme";
 import Statistics from "./Statistics";
 import Orders from "./Orders";
+import OrderAnalytics from "./OrderAnalytics";
 
 export default function AdminOverviewPage() {
   return (
@@ -11,6 +12,7 @@ export default function AdminOverviewPage() {
       <Stack gap={spacingTokens.xl}>
         <Hero />
         <Statistics />
+        <OrderAnalytics />
         <Orders />
       </Stack>
     </DashboardLayout>
