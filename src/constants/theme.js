@@ -10,7 +10,7 @@ export const fontSizes = {
 };
 
 export const typefaces = {
-  default: "Inter",
+  default: "Roboto",
 };
 
 export const buttonColors = {
