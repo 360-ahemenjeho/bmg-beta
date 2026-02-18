@@ -15,7 +15,7 @@ export default function Button({
   startContent,
   endContent,
   loading = false,
-  round = 4,
+  round = 2,
   disabled,
   ...props
 }) {
