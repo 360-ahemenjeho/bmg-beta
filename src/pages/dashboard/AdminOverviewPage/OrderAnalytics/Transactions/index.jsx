@@ -6,7 +6,7 @@ import { Box, CardContent, Stack, Typography } from "@mui/material";
 
 export default function Transactions() {
   return (
-    <Card round={8}>
+    <Card>
       <Stack component={CardContent} gap={spacingTokens.md} padding={spacingTokens.lg}>
         <Stack direction="row" alignItems="center" justifyContent="space-between">
           <Typography variant="h3" color="#63658F" fontWeight={700}>

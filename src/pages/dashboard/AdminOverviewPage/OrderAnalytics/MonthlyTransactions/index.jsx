@@ -3,7 +3,7 @@ import { CardContent } from "@mui/material";
 
 export default function MonthlyTransactions() {
   return (
-    <Card round={8}>
+    <Card>
       <CardContent></CardContent>
     </Card>
   );
