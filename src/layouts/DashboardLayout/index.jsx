@@ -4,13 +4,9 @@ import { useColor } from "@/contexts/color";
 import { spacingTokens } from "@/constants/theme";
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
+import { Outlet } from "react-router-dom";
 
-/**
- * @param {Object} props
- * @param {import("react").ReactNode} props.children
- */
-
-export default function DashboardLayout({ children }) {
+export default function DashboardLayout() {
   const { border, bg } = useColor();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [sidebarWidth, setSidebarWidth] = useState(0);
@@ -60,7 +56,7 @@ export default function DashboardLayout({ children }) {
             backgroundColor: bg.primary,
           }}
         >
-          {children}
+          <Outlet />
         </Box>
       </Box>
     </Box>
