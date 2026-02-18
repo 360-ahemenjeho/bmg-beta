@@ -1,13 +1,13 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { AdminOverviewPage, DesignSystemPage } from "@/pages";
+import { BrowserRouter } from "react-router-dom";
 import { useColor } from "@/contexts/color";
 import { useMemo } from "react";
 import { configureDashboardTheme } from "@/themes";
+import Routes from "@/routes";
 
 function App() {
   const colors = useColor();
-  const theme = useMemo(
+  const dashboardTheme = useMemo(
     () =>
       configureDashboardTheme({
         colors,
@@ -16,15 +16,12 @@ function App() {
   );
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/design/system" element={<DesignSystemPage />} />
-          <Route path="/" element={<AdminOverviewPage />} />
-        </Routes>
-      </BrowserRouter>
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider theme={dashboardTheme}>
+        <CssBaseline />
+        <Routes />
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
 
