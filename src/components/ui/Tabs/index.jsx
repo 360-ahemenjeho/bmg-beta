@@ -1,18 +1,19 @@
 import { radiusTokens, spacingTokens } from "@/constants/theme";
 import { useColor } from "@/contexts/color";
-import { Box, Stack } from "@mui/material";
+import { Box } from "@mui/material";
 
 /**
  * @param {Object} props
  * @param {import("@/types/global.d.js").Tab[]} props.tabs
  * @param {number} props.active
  * @param {(key: number) => void} props.onChange
+ * @param {import("react").ReactNode} props.children
  */
-export default function Tabs({ tabs, active, onChange }) {
+export default function Tabs({ children, tabs, active, onChange }) {
   const { border, elevate, fg, main } = useColor();
 
   return (
-    <Stack gap={spacingTokens.lg}>
+    <Box>
       <Box
         sx={{
           overflowX: "auto",
@@ -54,6 +55,7 @@ export default function Tabs({ tabs, active, onChange }) {
           );
         })}
       </Box>
-    </Stack>
+      {children}
+    </Box>
   );
 }
