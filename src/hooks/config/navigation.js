@@ -1,6 +1,7 @@
 import {
   DataPieRegular,
   DiversityRegular,
+  DocumentFolderRegular,
   FormRegular,
   GlanceRegular,
   PeopleRegular,
@@ -40,7 +41,6 @@ export function useNavigationMenu() {
     ],
     customer: [
       { label: "Overview", path: "/", icon: GlanceRegular },
-      { label: "Tasks", path: "/tasks", icon: TextBulletListSquareRegular },
       {
         label: "CRM",
         path: "",
@@ -55,9 +55,10 @@ export function useNavigationMenu() {
         color: "#FF0004",
         sub: [
           { label: "Goals", path: "/goals", icon: TargetArrowRegular },
-          { label: "Schecule", path: "/schedule", icon: DiversityRegular },
+          { label: "Tasks", path: "/tasks", icon: TextBulletListSquareRegular },
         ],
       },
+      { label: "Files", color: "#2C3891", path: "/files", icon: DocumentFolderRegular },
       { label: "Forms", color: "#3B009D", path: "/forms", icon: FormRegular },
       { label: "Automation", color: "#F1592A", path: "/automation", icon: WrenchSettingsRegular },
     ],

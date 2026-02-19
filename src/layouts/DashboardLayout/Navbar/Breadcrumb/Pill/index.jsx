@@ -43,12 +43,12 @@ export default function Pill({ active, nav }) {
           alignItems: "center",
           justifyContent: "center",
           gap: spacing[1],
-          "& *": {
+          "& > *": {
             color: active ? main.primary : fg.primary,
           },
         }}
       >
-        {nav.icon && <nav.icon fontSize={16} style={{ display: "block" }} />}
+        {nav.icon && <nav.icon fontSize={16} style={{ display: "block" }}></nav.icon>}
         <span style={{ lineHeight: 1 }}>{nav?.label}</span>
       </Box>
     </Box>

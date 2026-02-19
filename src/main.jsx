@@ -7,7 +7,7 @@ import { ColorProvider } from "@/contexts/color";
 createRoot(/** @type {HTMLElement} */ (document.getElementById("root"))).render(
   <StrictMode>
     <ColorProvider>
-      <App />
+      <App></App>
     </ColorProvider>
   </StrictMode>,
 );

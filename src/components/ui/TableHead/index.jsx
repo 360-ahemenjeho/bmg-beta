@@ -18,9 +18,11 @@ export default function TableHead({ columns }) {
               justifyContent={column.align === "right" ? "flex-end" : "flex-start"}
             >
               {column?.icon && (
-                <column.icon fontSize={14} style={{ color: "inherit !important" }} />
+                <column.icon fontSize={18} style={{ color: "inherit !important" }}></column.icon>
               )}
-              <span style={{ fontSize: "inherit", color: "inherit" }}>{column.label}</span>
+              {column?.label && (
+                <span style={{ fontSize: "inherit", color: "inherit" }}>{column?.label}</span>
+              )}
             </Stack>
           </TableCell>
         ))}

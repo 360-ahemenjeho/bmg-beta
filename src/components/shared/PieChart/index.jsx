@@ -32,7 +32,9 @@ export default function PieChart({ data, size = 200 }) {
         "Z",
       ].join(" ");
 
-      return <path key={index} d={pathData} fill={item.color} stroke="white" strokeWidth="2" />;
+      return (
+        <path key={index} d={pathData} fill={item.color} stroke="white" strokeWidth="2"></path>
+      );
     });
   };
 

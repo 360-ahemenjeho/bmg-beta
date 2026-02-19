@@ -1,5 +1,5 @@
 import { InsightTag, PieChart } from "@/components/shared";
-import { Card } from "@/components/ui/primitives";
+import { Card } from "@/components/ui";
 import { spacingTokens } from "@/constants/theme";
 import { MoreHorizontalFilled } from "@fluentui/react-icons";
 import { Box, CardContent, Stack, Typography } from "@mui/material";
@@ -12,7 +12,7 @@ export default function OrderInsight() {
           <Typography variant="h3" color="#63658F" fontWeight={700}>
             Orders Insight
           </Typography>
-          <MoreHorizontalFilled fontSize={26} color="#A2A5D6" />
+          <MoreHorizontalFilled fontSize={26} color="#A2A5D6"></MoreHorizontalFilled>
         </Stack>
         <Box
           display="grid"
@@ -27,11 +27,11 @@ export default function OrderInsight() {
               { percent: 60, color: "#05970F" },
             ]}
             size={140}
-          />
+          ></PieChart>
           <Stack gap={spacingTokens.md}>
-            <InsightTag color="success" label="Completed" value="65,000" />
-            <InsightTag color="warning" label="Pending" value="Pending" />
-            <InsightTag color="error" label="Cancelled" value="1500" />
+            <InsightTag color="success" label="Completed" value="65,000"></InsightTag>
+            <InsightTag color="warning" label="Pending" value="Pending"></InsightTag>
+            <InsightTag color="error" label="Cancelled" value="1500"></InsightTag>
           </Stack>
         </Box>
       </Stack>

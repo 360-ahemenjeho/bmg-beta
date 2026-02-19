@@ -8,10 +8,10 @@ import OrderAnalytics from "./OrderAnalytics";
 export default function AdminOverviewPage() {
   return (
     <Stack gap={spacingTokens.xl}>
-      <Hero />
-      <Statistics />
-      <OrderAnalytics />
-      <Orders />
+      <Hero></Hero>
+      <Statistics></Statistics>
+      <OrderAnalytics></OrderAnalytics>
+      <Orders></Orders>
     </Stack>
   );
 }

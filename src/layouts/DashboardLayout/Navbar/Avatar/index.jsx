@@ -6,6 +6,6 @@ export default function Avatar() {
       component="img"
       src="/avatar.png"
       sx={{ borderRadius: "999px", height: "25px", width: "25px" }}
-    />
+    ></Box>
   );
 }

@@ -10,9 +10,9 @@ export default function OrderAnalytics() {
       gridTemplateColumns={{ xs: "1fr", md: "repeat(3, 1fr)" }}
       gap={spacingTokens.lg}
     >
-      <OrderInsight />
-      <Transactions />
-      <OrderInsight />
+      <OrderInsight></OrderInsight>
+      <Transactions></Transactions>
+      <OrderInsight></OrderInsight>
     </Box>
   );
 }

@@ -1,4 +1,4 @@
-import { Typography } from "@/components/ui/primitives";
+import { Typography } from "@/components/ui";
 import { radius, radiusTokens, spacingTokens } from "@/constants/theme";
 import { useColor } from "@/contexts/color";
 import { ArrowRightFilled } from "@fluentui/react-icons";
@@ -14,7 +14,7 @@ import { Typography as BaseTypography } from "@mui/material";
  * @param {keyof radius} [props.round]
  * @param {string} [props.label]
  * @param {string} [props.secondaryLabel]
- * @param {React.ComponentType<{fontSize: number, style: Record<string, any>}>} props.icon
+ * @param {React.ComponentType<{fontSize: number, color: string, style: Record<string, any>}>} props.icon
  * @param {boolean} [props.readOnly]
  * @param {boolean} [props.coloredLabel]
  */
@@ -60,7 +60,7 @@ export default function SummaryCard({
         </BaseTypography>
       </Stack>
 
-      <Box borderTop={`1px solid ${border.primary}`} mx="auto" width="25%" />
+      <Box borderTop={`1px solid ${border.primary}`} mx="auto" width="25%"></Box>
 
       <Stack direction="row" alignItems="center" justifyContent="space-between">
         <BaseTypography
@@ -77,23 +77,22 @@ export default function SummaryCard({
               borderRadius: `${radiusTokens.md} !important`,
             }}
           >
-            <ArrowRightFilled />
+            <ArrowRightFilled></ArrowRightFilled>
           </Button>
         )}
       </Stack>
 
       {Icon && (
-        <Box sx={{ display: "contents", "& *": { color: `${_color?.primary} !important` } }}>
-          <Icon
-            fontSize={30}
-            style={{
-              position: "absolute",
-              left: spacingTokens.lg,
-              top: "-15px",
-              display: "block",
-            }}
-          />
-        </Box>
+        <Icon
+          fontSize={40}
+          color={_color?.primary}
+          style={{
+            position: "absolute",
+            left: spacingTokens.lg,
+            top: "-20px",
+            display: "block",
+          }}
+        ></Icon>
       )}
     </Box>
   );

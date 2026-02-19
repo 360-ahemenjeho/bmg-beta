@@ -4,7 +4,7 @@ import { NavigationFilled } from "@fluentui/react-icons";
 import { Box, Stack, useMediaQuery, useTheme } from "@mui/material";
 import Avatar from "./Avatar";
 import Notification from "./Notification";
-import QuickNavigation from "./QuickNavigation";
+import Breadcrumb from "./Breadcrumb";
 
 /**
  * @param {*} param0
@@ -36,12 +36,12 @@ export default function Navbar({ onToggle }) {
           fontSize={22}
           onClick={onToggle}
           style={{ display: isMobile ? "block" : "none" }}
-        />
-        <QuickNavigation />
+        ></NavigationFilled>
+        <Breadcrumb></Breadcrumb>
       </Stack>
       <Stack direction="row" alignItems="center" gap={spacingTokens.md}>
-        <Notification />
-        <Avatar />
+        <Notification></Notification>
+        <Avatar></Avatar>
       </Stack>
     </Box>
   );

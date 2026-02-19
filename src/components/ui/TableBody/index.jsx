@@ -15,7 +15,7 @@ export default function TableBody({ children, count, message, span, loading = fa
       {loading ? (
         <TableRow>
           <TableCell colSpan={span} align="center">
-            <MoonLoader loading size={13} />
+            <MoonLoader loading size={13}></MoonLoader>
           </TableCell>
         </TableRow>
       ) : Number(count || 0) === 0 ? (

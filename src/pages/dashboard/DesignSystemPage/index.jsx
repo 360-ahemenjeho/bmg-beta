@@ -7,7 +7,7 @@ import {
   TableHead,
   TableBody,
   Chip,
-} from "@/components/ui/primitives";
+} from "@/components/ui";
 import {
   AddFilled,
   CircleSmallFilled,

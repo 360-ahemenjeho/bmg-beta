@@ -36,7 +36,7 @@ export default function DashboardLayout() {
           },
         }}
       >
-        <Sidebar setWidth={setSidebarWidth} />
+        <Sidebar setWidth={setSidebarWidth}></Sidebar>
       </Drawer>
 
       <Box
@@ -47,7 +47,7 @@ export default function DashboardLayout() {
           width: { xs: "100%", md: `calc(100% - ${sidebarWidth}px)` },
         }}
       >
-        <Navbar onToggle={toggleDrawer} />
+        <Navbar onToggle={toggleDrawer}></Navbar>
         <Box
           component="main"
           sx={{
@@ -56,7 +56,7 @@ export default function DashboardLayout() {
             backgroundColor: bg.primary,
           }}
         >
-          <Outlet />
+          <Outlet></Outlet>
         </Box>
       </Box>
     </Box>

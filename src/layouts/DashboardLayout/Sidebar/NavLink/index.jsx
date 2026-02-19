@@ -1,6 +1,6 @@
-import { fontSizes, radiusTokens, spacing, spacingTokens } from "@/constants/theme";
+import { radiusTokens, spacing, spacingTokens } from "@/constants/theme";
 import { useColor } from "@/contexts/color";
-import { CaretRightFilled, CaretUpFilled } from "@fluentui/react-icons";
+import { ChevronLeftFilled } from "@fluentui/react-icons";
 import { Box, Stack } from "@mui/material";
 
 /** @typedef {import("@/types/global.d.js").NavItem} NavProps */
@@ -18,24 +18,22 @@ export default function NavLink({
   nav,
   onNavigate,
   active,
-  y = "6px",
-  x = spacing[8],
+  y = "4px",
+  x = spacing[3],
   subNavOpen = false,
 }) {
-  const { elevate, shadow, fg } = useColor();
+  const { elevate, shadow, fg, main } = useColor();
 
   return (
     <Box
       component="div"
       onClick={onNavigate}
       sx={{
-        position: "relative",
         display: "flex",
         alignItems: "center",
         gap: spacingTokens.sm,
         width: "100%",
-        fontSize: fontSizes.body2,
-        fontWeight: 500,
+        fontWeight: 400,
         py: y,
         px: x,
         lineHeight: 1,
@@ -47,30 +45,17 @@ export default function NavLink({
         transition: "background-color 0.35s ease-in-out, color 0.35s ease-in-out 0.25s",
         "&:hover": {
           backgroundColor: elevate.primary,
-          color: fg.secondary,
+          color: main.primary,
         },
         "& *": {
           flexShrink: 0,
         },
         "& .indicator": {
-          position: "absolute",
-          left: `-${spacingTokens.md}`,
-          top: "50%",
-          transform: subNavOpen
-            ? "translateY(-50%) rotate(90deg)"
-            : "translateY(-50%) rotate(0deg)",
+          transform: subNavOpen ? "rotate(90deg)" : "rotate(0deg)",
           transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-          "& *": {
-            fontSize: "16px",
-          },
         },
       }}
     >
-      {nav?.sub && nav?.sub?.length > 0 && (
-        <Stack alignItems="center" justifyContent="center" component="div" className="indicator">
-          {subNavOpen ? <CaretUpFilled></CaretUpFilled> : <CaretRightFilled></CaretRightFilled>}
-        </Stack>
-      )}
       <Stack alignItems="center" justifyContent="center">
         <nav.icon
           fontSize={26}
@@ -80,6 +65,11 @@ export default function NavLink({
       <Box component="p" lineHeight={1} sx={{ padding: 0, margin: 0, userSelect: "none" }}>
         {nav?.label}
       </Box>
+      {nav?.sub && nav?.sub?.length > 0 && (
+        <Stack alignItems="center" justifyContent="center" component="div" className="indicator">
+          <ChevronLeftFilled fontSize={18}></ChevronLeftFilled>
+        </Stack>
+      )}
     </Box>
   );
 }

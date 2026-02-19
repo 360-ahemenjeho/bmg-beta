@@ -55,7 +55,7 @@ export default function BarChart({
             fill={item.color}
             rx="8"
             ry="8"
-          />
+          ></rect>
         );
       })}
     </svg>

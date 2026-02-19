@@ -18,8 +18,8 @@ function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={dashboardTheme}>
-        <CssBaseline />
-        <Routes />
+        <CssBaseline></CssBaseline>
+        <Routes></Routes>
       </ThemeProvider>
     </BrowserRouter>
   );

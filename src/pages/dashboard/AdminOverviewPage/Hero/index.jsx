@@ -1,4 +1,4 @@
-import { Button, Typography } from "@/components/ui/primitives";
+import { Button, Typography } from "@/components/ui";
 import { spacingTokens } from "@/constants/theme";
 import { AddFilled, CircleSmallFilled } from "@fluentui/react-icons";
 import { Box, Stack } from "@mui/material";
@@ -21,8 +21,8 @@ export default function Hero() {
         <Button
           color="secondary"
           size="large"
-          startContent={<CircleSmallFilled />}
-          endContent={<AddFilled />}
+          startContent={<CircleSmallFilled></CircleSmallFilled>}
+          endContent={<AddFilled></AddFilled>}
           round={2}
         >
           Add Admin
@@ -30,8 +30,8 @@ export default function Hero() {
         <Button
           color="secondary"
           size="large"
-          startContent={<CircleSmallFilled />}
-          endContent={<AddFilled />}
+          startContent={<CircleSmallFilled></CircleSmallFilled>}
+          endContent={<AddFilled></AddFilled>}
           round={2}
         >
           Add Expert
@@ -39,8 +39,8 @@ export default function Hero() {
         <Button
           color="secondary"
           size="large"
-          startContent={<CircleSmallFilled />}
-          endContent={<AddFilled />}
+          startContent={<CircleSmallFilled></CircleSmallFilled>}
+          endContent={<AddFilled></AddFilled>}
           round={2}
         >
           Add Services

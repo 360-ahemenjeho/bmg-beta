@@ -10,7 +10,7 @@ export default function Notification({ count = 5 }) {
   const { main } = useColor();
   return (
     <Box sx={{ position: "relative" }}>
-      <AlertRegular fontSize={22} style={{ display: "block" }} />
+      <AlertRegular fontSize={22} style={{ display: "block" }}></AlertRegular>
       {count > 0 && (
         <Box
           sx={{

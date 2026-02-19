@@ -4,13 +4,13 @@ export const fontSizes = {
   h1: "25px",
   h2: "20.96px",
   h3: "16px",
-  caption: "12px",
-  body1: "14px",
-  body2: "14px",
+  caption: "11px",
+  body1: "13px",
+  body2: "13px",
 };
 
 export const typefaces = {
-  default: "Roboto",
+  default: "Inter",
 };
 
 export const buttonColors = {
@@ -437,9 +437,9 @@ export const borderColors = {
 
 export const foregroundColors = {
   light: {
-    primary: "#110c1d",
-    secondary: "#76778b",
-    tertiary: "#b2b4c7",
+    primary: "#171717",
+    secondary: "#737373",
+    tertiary: "#9fa2b5",
   },
   dark: {
     primary: "#000000",
@@ -705,9 +705,11 @@ export const elevateColors = {
 
 export const shadowColors = {
   light: {
-    default: "1px 1px 1px rgba(0, 0, 0, 0.15)",
+    default: "1px 1px 1px rgba(0, 0, 0, 0.25)",
+    soft: "1px 1px 1px rgba(0, 0, 0, 0.05)",
   },
   dark: {
     default: "1px 1px 1px rgba(0, 0, 0, 0.15)",
+    soft: "1px 1px 1px rgba(0, 0, 0, 0.25)",
   },
 };

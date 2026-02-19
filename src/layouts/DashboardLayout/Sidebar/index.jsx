@@ -50,12 +50,12 @@ export default function Sidebar({ setWidth }) {
   return (
     <Box ref={navRef} sx={{ height: "100vh" }}>
       <Stack display="flex" alignItems="center" justifyContent="center" height="80px">
-        <Box component="img" height="30px" src="/logo-dark.png" />
+        <Box component="img" height="30px" src="/logo-dark.png"></Box>
       </Stack>
 
       <Box
         sx={{
-          px: spacingTokens.md,
+          px: spacingTokens.sm,
           height: `calc(100vh - 120px)`,
           overflowY: "auto",
           display: "flex",
@@ -74,13 +74,13 @@ export default function Sidebar({ setWidth }) {
               }
               onNavigate={() => handleNavigation(item, index)}
               subNavOpen={selected === index}
-            />
+            ></NavLink>
 
             <Stack
               gap={spacingTokens.sm}
               sx={{
                 maxHeight: selected === index ? "500px" : "0px",
-                overflow: "auto",
+                overflow: "hidden",
                 transition: "max-height 0.35s ease-in-out",
               }}
             >
@@ -91,7 +91,7 @@ export default function Sidebar({ setWidth }) {
                   active={subItem.path === pathname}
                   onNavigate={() => handleSubNavigatiion(subItem)}
                   x={spacingTokens.md}
-                />
+                ></NavLink>
               ))}
             </Stack>
           </Stack>
@@ -104,9 +104,9 @@ export default function Sidebar({ setWidth }) {
         alignItems="center"
         justifyContent="end"
         height="40px"
-        px={spacingTokens.md}
+        px={spacingTokens.sm}
       >
-        <SignOutRegular fontSize={20} style={{ cursor: "pointer" }} />
+        <SignOutRegular fontSize={20} style={{ cursor: "pointer" }}></SignOutRegular>
       </Stack>
     </Box>
   );

@@ -1,4 +1,4 @@
-import { Chip, Table, TableBody, TableHead } from "@/components/ui/primitives";
+import { Chip, Table, TableBody, TableHead } from "@/components/ui";
 import {
   CalendarClockRegular,
   CircleRegular,
@@ -10,7 +10,7 @@ import {
   SquareRegular,
 } from "@fluentui/react-icons";
 import { TableCell, TableRow } from "@mui/material";
-import { statusColor } from "./data";
+import { statusColor } from "./lib";
 
 const orders = [
   {

@@ -1,4 +1,5 @@
 import { radius, spacing } from "@/constants/theme";
+import { useColor } from "@/contexts/color";
 import { Button as BaseButton } from "@mui/material";
 import { MoonLoader } from "react-spinners";
 
@@ -7,6 +8,8 @@ import { MoonLoader } from "react-spinners";
  *    startContent?: import("@mui/material").ButtonProps["startIcon"],
  *    endContent?: import("@mui/material").ButtonProps["endIcon"],
  *    round?: keyof radius,
+ *    icon?: boolean,
+ *    noShadow?: boolean,
  * }} props
  */
 export default function Button({
@@ -15,23 +18,29 @@ export default function Button({
   startContent,
   endContent,
   loading = false,
-  round = 2,
+  round = 3,
   disabled,
+  icon,
+  noShadow,
   ...props
 }) {
+  const { shadow } = useColor();
+
   return (
     <BaseButton
       {...props}
+      className={icon ? "icon" : ""}
       color={color}
       disabled={loading || disabled}
       sx={{
         borderRadius: radius[round],
         gap: spacing[1],
+        boxShadow: !noShadow ? shadow.default : "none",
       }}
     >
       {startContent && startContent}
       {children}
-      {loading ? <MoonLoader size={10} /> : endContent && endContent}
+      {loading ? <MoonLoader size={10}></MoonLoader> : endContent && endContent}
     </BaseButton>
   );
 }

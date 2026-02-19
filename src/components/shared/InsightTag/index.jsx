@@ -23,7 +23,7 @@ export default function InsightTag({ color = "success", label = "Label", value =
             width: "8px",
             borderRadius: "999px",
           }}
-        />
+        ></Box>
         <Typography color="#A1A3C3" fontSize="12px" fontWeight={700}>
           {label}
         </Typography>

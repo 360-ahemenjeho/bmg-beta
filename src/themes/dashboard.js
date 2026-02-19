@@ -71,10 +71,11 @@ function configureTheme({
       MuiCssBaseline: {
         styleOverrides: {
           html: {
-            fontSize: "0.8125rem",
+            fontSize: fontSizes.body1,
+            color: fg.primary,
+            fontFamily: typefaces.default,
             backgroundColor: bg.primary,
             "& *": {
-              fontFamily: typefaces.default,
               "::-webkit-scrollbar": {
                 width: "6px",
                 borderRadius: "999px",
@@ -91,15 +92,12 @@ function configureTheme({
                 display: "none",
               },
             },
-            color: fg.primary,
           },
           body: {
             margin: 0,
             padding: 0,
             backgroundColor: bg.primary,
-            "& *": {
-              fontFamily: typefaces.default,
-            },
+            fontFamily: typefaces.default,
             color: fg.primary,
           },
         },
@@ -112,33 +110,33 @@ function configureTheme({
             outline: "none",
             textTransform: "unset",
             minWidth: "fit-content",
-            lineHeight: "1",
+            lineHeight: 1,
             fontWeight: 500,
             borderWidth: "0",
             borderStyle: "none",
             boxSizing: "border-box",
+            gap: spacing[1],
             "&.MuiButton-sizeLarge": {
               fontSize: "15px",
               padding: "1rem 1.25rem",
-              "& > *": {
-                fontSize: "15px",
-              },
+            },
+            "&.MuiButton-sizeLarge.icon": {
+              padding: "1rem",
             },
             "&.MuiButton-sizeMedium": {
               fontSize: "14px",
-              padding: "0.9rem 1.25rem",
-              "& > *": {
-                fontSize: "14px",
-              },
+              padding: "0.7rem 1.25rem",
+            },
+            "&.MuiButton-sizeMedium.icon": {
+              padding: "0.5rem",
             },
             "&.MuiButton-sizeSmall": {
               fontSize: "13px",
               padding: "0.8rem 1.25rem",
-              "& > *": {
-                fontSize: "13px",
-              },
             },
-            gap: spacing[1],
+            "&.MuiButton-sizeSmall.icon": {
+              padding: "0.3rem",
+            },
             "&.MuiButton-contained.MuiButton-colorPrimary": {
               borderColor: button["primary"]["default"]["border"]["normal"],
               backgroundColor: button["primary"]["default"]["bg"]["normal"],
@@ -178,7 +176,6 @@ function configureTheme({
               borderColor: button["secondary"]["default"]["border"]["normal"],
               backgroundColor: button["secondary"]["default"]["bg"]["normal"],
               color: button["secondary"]["default"]["fg"]["normal"],
-              boxShadow: shadow.default,
               "&:hover": {
                 borderColor: button["secondary"]["default"]["border"]["hover"],
                 backgroundColor: button["secondary"]["default"]["bg"]["hover"],
@@ -443,7 +440,7 @@ function configureTheme({
         styleOverrides: {
           root: {
             backgroundColor: bg.tertiary,
-            boxShadow: shadow.default,
+            boxShadow: shadow.soft,
             "&.MuiPaper-outlined": {
               border: `1px solid ${border.primary}`,
               boxShadow: "none !important",
@@ -580,8 +577,8 @@ function configureTheme({
             lineHeight: 1,
             fontSize: "12px",
             whiteSpace: "nowrap",
-            fontWeight: 500,
-            backgroundColor: mode == "light" ? "#8F8D8D" : "#8F8D8D33",
+            fontWeight: 400,
+            backgroundColor: mode == "light" ? "#8B9AAF" : "#8F8D8D33",
             borderBottom: "none",
             color: "#FFFFFF",
             "& *": {
@@ -724,6 +721,13 @@ function configureTheme({
                 color: status.secondary.primary,
               },
             },
+          },
+        },
+      },
+      MuiCardContent: {
+        styleOverrides: {
+          root: {
+            padding: `${spacingTokens.md} !important`,
           },
         },
       },

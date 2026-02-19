@@ -1,4 +1,4 @@
-import { Card } from "@/components/ui/primitives";
+import { Card } from "@/components/ui";
 import { CardContent } from "@mui/material";
 
 export default function MonthlyTransactions() {
