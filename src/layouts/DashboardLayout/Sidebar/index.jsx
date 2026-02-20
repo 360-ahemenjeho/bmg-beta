@@ -1,26 +1,16 @@
 import { Box, Stack } from "@mui/material";
 import { ArrowExitFilled } from "@fluentui/react-icons";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { spacingTokens } from "@/constants/theme";
 import NavLink from "./NavLink";
 import { useNavigationMenu } from "@/hooks/config/navigation";
 import { useLocation, useNavigate } from "react-router-dom";
+import { footerHeight, headerHeight } from "./lib";
 
 /** @typedef {import("@/types/global.d").NavItem} NavItemProps */
-
-/**
- * @param {Object} props
- * @param {(width: number) => void} props.setWidth
- */
-export default function Sidebar({ setWidth }) {
+export default function Sidebar() {
   /** @type {React.RefObject<HTMLDivElement | null>} */
   const navRef = useRef(null);
-
-  useEffect(() => {
-    if (navRef.current) {
-      setWidth(navRef.current.offsetWidth);
-    }
-  }, [setWidth]);
 
   const menu = useNavigationMenu();
   const { pathname } = useLocation();
@@ -48,18 +38,19 @@ export default function Sidebar({ setWidth }) {
   }
 
   return (
-    <Box ref={navRef} sx={{ height: "100vh" }}>
-      <Stack display="flex" alignItems="center" justifyContent="center" height="80px">
-        <Box component="img" height="30px" src="/logo-dark.png"></Box>
+    <Box ref={navRef} sx={{ height: "100svh" }}>
+      <Stack display="flex" alignItems="center" justifyContent="center" height={headerHeight}>
+        <Box component="img" height="25px" src="/logo-dark.png"></Box>
       </Stack>
 
       <Box
         sx={{
           px: spacingTokens.sm,
-          height: `calc(100vh - 120px)`,
+          height: `calc(100svh - (${headerHeight} + ${footerHeight}))`,
           overflowY: "auto",
           display: "flex",
           flexDirection: "column",
+          gap: spacingTokens.sm,
         }}
       >
         {menu.map((item, index) => (
@@ -102,7 +93,7 @@ export default function Sidebar({ setWidth }) {
         display="flex"
         alignItems="center"
         justifyContent="end"
-        height="40px"
+        height={footerHeight}
         px={spacingTokens.sm}
       >
         <ArrowExitFilled fontSize={20} style={{ cursor: "pointer" }}></ArrowExitFilled>

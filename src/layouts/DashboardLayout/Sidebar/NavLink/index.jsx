@@ -29,6 +29,7 @@ export default function NavLink({
       component="div"
       onClick={onNavigate}
       sx={{
+        position: "relative",
         display: "flex",
         alignItems: "center",
         gap: spacingTokens.sm,
@@ -43,15 +44,23 @@ export default function NavLink({
         flexShrink: 0,
         cursor: "pointer",
         transition: "background-color 0.35s ease-in-out, color 0.35s ease-in-out 0.25s",
-        "&:hover": {
-          backgroundColor: elevate.primary,
-          color: main.primary,
-        },
         "& *": {
           flexShrink: 0,
         },
+        "&:hover": {
+          backgroundColor: elevate.primary,
+          color: main.primary,
+          "& .indicator": {
+            transform: "translateY(-50%) rotate(180deg)",
+          },
+        },
         "& .indicator": {
-          transform: subNavOpen ? "rotate(90deg)" : "rotate(0deg)",
+          position: "absolute",
+          top: "50%",
+          right: 0,
+          transform: subNavOpen
+            ? "translateY(-50%) rotate(90deg)"
+            : "translateY(-50%) rotate(0deg)",
           transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
         },
       }}
@@ -67,7 +76,13 @@ export default function NavLink({
       </Box>
       {nav?.sub && nav?.sub?.length > 0 && (
         <Stack alignItems="center" justifyContent="center" component="div" className="indicator">
-          <ChevronLeftFilled fontSize={14}></ChevronLeftFilled>
+          <ChevronLeftFilled
+            fontSize={12}
+            style={{
+              backgroundColor: "rgba(0, 0, 0, 0.1)",
+              borderRadius: "4px",
+            }}
+          ></ChevronLeftFilled>
         </Stack>
       )}
     </Box>
