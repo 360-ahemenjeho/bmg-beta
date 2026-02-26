@@ -43,6 +43,7 @@ export default function NavLink({
         borderRadius: radiusTokens.md,
         flexShrink: 0,
         cursor: "pointer",
+        color: fg.secondary,
         transition: "background-color 0.35s ease-in-out, color 0.35s ease-in-out 0.25s",
         "& *": {
           flexShrink: 0,
@@ -68,7 +69,7 @@ export default function NavLink({
       <Stack alignItems="center" justifyContent="center">
         <nav.icon
           fontSize={20}
-          style={{ display: "block", color: nav?.color ? nav.color : fg.primary }}
+          style={{ display: "block", color: nav?.color ? nav.color : fg.secondary }}
         ></nav.icon>
       </Stack>
       <Box component="p" lineHeight={1} sx={{ padding: 0, margin: 0, userSelect: "none" }}>

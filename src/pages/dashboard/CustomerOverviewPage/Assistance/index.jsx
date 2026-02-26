@@ -9,6 +9,7 @@ import { Box, Stack } from "@mui/material";
 import Suggestion from "./Suggestion";
 import { Typography } from "@/components/ui";
 import MessageInput from "./MessageInput";
+import useColor from "@/contexts/color/useColor";
 
 const suggestions = [
   { label: "Text Assistance", icon: DocumentOnePageSparkleRegular, color: "#7DBBFF" },
@@ -18,27 +19,23 @@ const suggestions = [
 ];
 
 export default function Assistance() {
+  const { theme } = useColor();
   return (
     <Stack
       gap={spacingTokens.lg}
       sx={{
-        backgroundColor: "#7DBBFF",
+        backgroundColor: theme === "dark" ? "#031e3b" : "#81b5ec",
         borderRadius: radiusTokens["5xl"],
         px: spacingTokens.md,
         py: spacingTokens.lg,
       }}
     >
       <Stack alignItems="center" justifyContent="center" gap={spacingTokens.sm}>
-        <Typography
-          textAlign="center"
-          fontWeight={500}
-          lineHeight={1}
-          sx={{ color: "#20289f !important" }}
-        >
+        <Typography textAlign="center" fontWeight={400} lineHeight={1} color="secondary">
           Hi Jeho 🥳
         </Typography>
         <Typography textAlign="center" variant="h3" lineHeight={1} fontWeight={600}>
-          Let's Assist You!
+          Need Assistance?
         </Typography>
       </Stack>
       <Box display="grid" gridTemplateColumns="repeat(2, 1fr)" gap={spacingTokens.md}>

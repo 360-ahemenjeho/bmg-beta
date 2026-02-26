@@ -2,13 +2,15 @@ import { radiusTokens, spacingTokens } from "@/constants/theme";
 import { Stack } from "@mui/material";
 import Checklist from "./Checklist";
 import Reminders from "./Reminders";
+import { useColor } from "@/contexts/color";
 
 export default function Agenda() {
+  const { theme } = useColor();
   return (
     <Stack
       gap={spacingTokens.lg}
       sx={{
-        backgroundColor: "#FFC64B",
+        backgroundColor: theme === "dark" ? "#433108" : "#FFC64B",
         borderRadius: radiusTokens["5xl"],
         px: spacingTokens.md,
         py: spacingTokens.lg,

@@ -28,7 +28,7 @@ export default function ColorProvider({ children }) {
         const stored = localStorage.getItem(THEME_KEY);
         if (stored === "light" || stored === "dark") return stored;
       }
-      return "light";
+      return "dark";
     },
   );
 

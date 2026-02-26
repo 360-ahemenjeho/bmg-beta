@@ -3,7 +3,7 @@ import { TableRow, TableHead as RootTableHead, TableCell, Stack } from "@mui/mat
 
 /**
  * @param {Object} props
- * @param {Array<{label: string, align?: import("@mui/material").TableCellProps["align"], icon?: React.ComponentType<{ fontSize?: number, style?: Record<string, any> }>}>} props.columns
+ * @param {Array<import("@/types/global.d").TableColumn>} props.columns
  */
 export default function TableHead({ columns }) {
   return (

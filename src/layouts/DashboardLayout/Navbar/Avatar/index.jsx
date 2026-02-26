@@ -1,3 +1,4 @@
+import { actionSizes } from "@/constants/theme";
 import { Box } from "@mui/material";
 
 export default function Avatar() {
@@ -5,7 +6,7 @@ export default function Avatar() {
     <Box
       component="img"
       src="/avatar.png"
-      sx={{ borderRadius: "999px", height: "25px", width: "25px" }}
+      sx={{ borderRadius: "999px", height: actionSizes.small, width: actionSizes.small }}
     ></Box>
   );
 }

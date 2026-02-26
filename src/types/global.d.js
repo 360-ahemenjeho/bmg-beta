@@ -8,4 +8,15 @@
  * @property {import("react").ComponentType<{fontSize?: number, color?: string}>} icon
  */
 
+/**
+ * @typedef {Object} FilterLabel
+ * @property {string} label
+ * @property {string} accent
+ * @property {import("react").ComponentType<{fontSize?: number, color?: string}>} icon
+ */
+
+/**
+ * @typedef {{label: string, align?: import("@mui/material").TableCellProps["align"] | undefined, icon?: React.ComponentType<{ fontSize?: number, style?: Record<string, any> }>}} TableColumn
+ */
+
 export {};

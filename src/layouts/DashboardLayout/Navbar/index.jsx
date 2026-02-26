@@ -6,16 +6,28 @@ import Avatar from "./Avatar";
 import Notification from "./Notification";
 import { Crumb } from "@/components/shared";
 import { useCurrentRoute } from "@/hooks/config/route";
+import { useState } from "react";
+import ThemeToggleButton from "./ThemeToggleButton";
 
 /**
- * @param {*} param0
- * @returns
+ * @param {Object} props
+ * @param {() => void} props.onToggle
  */
 export default function Navbar({ onToggle }) {
-  const { bg, border } = useColor();
+  const { bg, border, theme: mode, toggleTheme } = useColor();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const { getCurrentRouteName } = useCurrentRoute();
+  const [spinning, setSpinning] = useState(false);
+
+  const handleToggle = () => {
+    if (spinning) return;
+    setSpinning(true);
+    toggleTheme();
+    setTimeout(() => setSpinning(false), 600);
+  };
+
+  const isDark = mode === "dark";
 
   return (
     <Box
@@ -38,15 +50,17 @@ export default function Navbar({ onToggle }) {
           fontSize={22}
           onClick={onToggle}
           style={{ display: isMobile ? "block" : "none" }}
-        ></NavigationFilled>
+        />
         <Crumb
           active
           nav={getCurrentRouteName() || { label: "Unknown", icon: LocationDismissRegular }}
-        ></Crumb>
+        />
       </Stack>
+
       <Stack direction="row" alignItems="center" gap={spacingTokens.md}>
-        <Notification></Notification>
-        <Avatar></Avatar>
+        <ThemeToggleButton spinning={spinning} isDark={isDark} onToggle={handleToggle} />
+        <Notification />
+        <Avatar />
       </Stack>
     </Box>
   );

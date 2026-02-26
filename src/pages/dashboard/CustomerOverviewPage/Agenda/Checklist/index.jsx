@@ -12,7 +12,7 @@ const checklist = [
 ];
 
 export default function Checklist() {
-  const { fg: _fg } = useColor();
+  const { fg: _fg, main } = useColor();
   const [checked, setChecked] = useState(checklist.map(() => false));
 
   const fg = _fg.primary;
@@ -32,7 +32,11 @@ export default function Checklist() {
       <Stack gap={spacingTokens.md}>
         {checklist.map((item, index) => (
           <Stack key={index} alignItems="center" direction="row" gap={spacingTokens.md}>
-            <Checkbox accent={fg} checked={checked[index]} onCheck={() => handleCheck(index)} />
+            <Checkbox
+              accent={main.success}
+              checked={checked[index]}
+              onCheck={() => handleCheck(index)}
+            />
             <Typography color={fg}>{item}</Typography>
           </Stack>
         ))}

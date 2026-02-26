@@ -4,7 +4,7 @@ import { ArrowEnterFilled } from "@fluentui/react-icons";
 import { Box } from "@mui/material";
 
 export default function MessageInput() {
-  const { fg } = useColor();
+  const { fg, bg } = useColor();
 
   return (
     <Box
@@ -12,7 +12,7 @@ export default function MessageInput() {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        backgroundColor: "#ffffff",
+        backgroundColor: bg.tertiary,
         borderRadius: radiusTokens.lg,
         py: spacingTokens.xs,
         px: spacingTokens.sm,
@@ -28,6 +28,7 @@ export default function MessageInput() {
           outline: "none",
           fontFamily: typefaces.default,
           px: spacingTokens.sm,
+          color: fg.primary,
           "&::placeholder": {
             color: fg.secondary,
           },

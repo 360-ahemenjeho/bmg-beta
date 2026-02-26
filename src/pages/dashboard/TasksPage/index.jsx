@@ -1,6 +1,18 @@
 import { ActionButton } from "@/components/shared";
-import { Avatar, Checkbox, Chip, Table, TableBody, TableHead } from "@/components/ui";
+import {
+  Avatar,
+  Button,
+  Checkbox,
+  Chip,
+  FilterField,
+  FilterMenu,
+  SearchBar,
+  Table,
+  TableBody,
+  TableHead,
+} from "@/components/ui";
 import { TASK_PRIORITY_VARIANT, TASK_STATUS_VARIANT } from "@/constants/lib";
+import { spacingTokens } from "@/constants/theme";
 import { renderDateTime } from "@/helpers/date";
 import { renderText } from "@/helpers/text";
 import {
@@ -16,7 +28,7 @@ import {
   CircleSmallFilled,
   CircleRegular,
 } from "@fluentui/react-icons";
-import { TableCell, TableRow } from "@mui/material";
+import { Stack, TableCell, TableRow } from "@mui/material";
 
 const tasks = [
   {
@@ -180,6 +192,7 @@ const tasks = [
   },
 ];
 
+/** @type {Array<import("@/types/global.d").TableColumn>} */
 const columns = [
   { label: "", icon: CheckboxCheckedRegular },
   { label: "ID", icon: NumberSymbolRegular },
@@ -192,46 +205,60 @@ const columns = [
   { label: "Category", icon: FolderRegular },
   // { label: "Tags", icon: TagRegular },
   // { label: "Description", icon: NotepadRegular },
-  { label: "Actions", icon: CircleRegular },
+  { label: "", icon: CircleRegular, align: "right" },
 ];
 
 export default function TasksPage() {
   return (
-    <Table>
-      <TableHead columns={columns}></TableHead>
-      <TableBody loading={false} count={tasks.length} span={columns.length}>
-        {tasks.map((row) => (
-          <TableRow key={row.id}>
-            <TableCell>
-              <Checkbox></Checkbox>
-            </TableCell>
-            <TableCell>{renderText(row.id)}</TableCell>
-            <TableCell>{renderText(row.subject)}</TableCell>
-            <TableCell>{row.assigneeName && <Avatar name={row.assigneeName}></Avatar>}</TableCell>
-            <TableCell>
-              <Chip
-                icon={<CircleSmallFilled></CircleSmallFilled>}
-                label={row.status}
-                color={TASK_STATUS_VARIANT[row.status]}
-                variant="outlined"
-              />
-            </TableCell>
-            <TableCell>
-              <Chip
-                icon={<CircleSmallFilled></CircleSmallFilled>}
-                label={row.priority}
-                color={TASK_PRIORITY_VARIANT[row.priority]}
-              />
-            </TableCell>
-            <TableCell>{renderDateTime(row.dueDate || "", row.time || "")}</TableCell>
-            <TableCell>{renderText(row.reminder)}</TableCell>
-            <TableCell>{renderText(row.category)}</TableCell>
-            <TableCell>
-              <ActionButton variation="delete" onClick={() => console.log("null")}></ActionButton>
-            </TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+    <Stack gap={spacingTokens.xl}>
+      <Stack direction="row" alignItems="center" justifyContent="space-between">
+        <Stack direction="row" alignItems="center" gap={spacingTokens.sm}>
+          <SearchBar></SearchBar>
+          <FilterField />
+          <FilterMenu
+            label={{ icon: PersonRegular, label: "User", accent: "#0078D4" }}
+            value=""
+            onChange={() => console.log("Opps!")}
+          />
+        </Stack>
+        <Button>Add Task</Button>
+      </Stack>
+      <Table>
+        <TableHead columns={columns}></TableHead>
+        <TableBody loading={false} count={tasks.length} span={columns.length}>
+          {tasks.map((row) => (
+            <TableRow key={row.id}>
+              <TableCell>
+                <Checkbox></Checkbox>
+              </TableCell>
+              <TableCell>{renderText(row.id)}</TableCell>
+              <TableCell>{renderText(row.subject)}</TableCell>
+              <TableCell>{row.assigneeName && <Avatar name={row.assigneeName}></Avatar>}</TableCell>
+              <TableCell>
+                <Chip
+                  icon={<CircleSmallFilled></CircleSmallFilled>}
+                  label={row.status}
+                  color={TASK_STATUS_VARIANT[row.status]}
+                  variant="outlined"
+                />
+              </TableCell>
+              <TableCell>
+                <Chip
+                  icon={<CircleSmallFilled></CircleSmallFilled>}
+                  label={row.priority}
+                  color={TASK_PRIORITY_VARIANT[row.priority]}
+                />
+              </TableCell>
+              <TableCell>{renderDateTime(row.dueDate || "", row.time || "")}</TableCell>
+              <TableCell>{renderText(row.reminder)}</TableCell>
+              <TableCell>{renderText(row.category)}</TableCell>
+              <TableCell align="right">
+                <ActionButton variation="delete" onClick={() => console.log("null")}></ActionButton>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </Stack>
   );
 }

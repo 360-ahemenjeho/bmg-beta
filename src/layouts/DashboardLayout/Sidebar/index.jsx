@@ -6,6 +6,7 @@ import NavLink from "./NavLink";
 import { useNavigationMenu } from "@/hooks/config/navigation";
 import { useLocation, useNavigate } from "react-router-dom";
 import { footerHeight, headerHeight } from "./lib";
+import { useColor } from "@/contexts/color";
 
 /** @typedef {import("@/types/global.d").NavItem} NavItemProps */
 export default function Sidebar() {
@@ -15,6 +16,8 @@ export default function Sidebar() {
   const menu = useNavigationMenu();
   const { pathname } = useLocation();
   const navigate = useNavigate();
+
+  const { status, theme } = useColor();
 
   const [selected, setSelected] = useState(/** @type {number | null} */ (null));
 
@@ -40,7 +43,11 @@ export default function Sidebar() {
   return (
     <Box ref={navRef} sx={{ height: "100svh" }}>
       <Stack display="flex" alignItems="center" justifyContent="center" height={headerHeight}>
-        <Box component="img" height="25px" src="/logo-dark.png"></Box>
+        <Box
+          component="img"
+          height="25px"
+          src={theme === "dark" ? "/logo-light.png" : "/logo-dark.png"}
+        ></Box>
       </Stack>
 
       <Box
@@ -98,7 +105,11 @@ export default function Sidebar() {
         height={footerHeight}
         px={spacingTokens.sm}
       >
-        <ArrowExitFilled fontSize={20} style={{ cursor: "pointer" }}></ArrowExitFilled>
+        <ArrowExitFilled
+          color={status.error.primary}
+          fontSize={20}
+          style={{ cursor: "pointer" }}
+        ></ArrowExitFilled>
       </Stack>
     </Box>
   );

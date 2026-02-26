@@ -416,9 +416,9 @@ export const backgroundColors = {
     tertiary: "#FFFFFF",
   },
   dark: {
-    primary: "#F7F7F7",
-    secondary: "#F9FAFB",
-    tertiary: "#FFFFFF",
+    primary: "#141414",
+    secondary: "#1A1A1A",
+    tertiary: "#222222",
   },
 };
 
@@ -429,9 +429,9 @@ export const borderColors = {
     tertiary: "#f7f7f7",
   },
   dark: {
-    primary: "#E5E5E5",
-    secondary: "#eeeeee",
-    tertiary: "#f7f7f7",
+    primary: "#333333",
+    secondary: "#2A2A2A",
+    tertiary: "#242424",
   },
 };
 
@@ -443,9 +443,9 @@ export const foregroundColors = {
     "main-primary": mainColors.light.primary,
   },
   dark: {
-    primary: "#000000",
-    secondary: "#63658F",
-    tertiary: "#A1A3C3",
+    primary: "#F5F5F5",
+    secondary: "#A1A3C3",
+    tertiary: "#717396",
     "main-primary": mainColors.dark.primary,
   },
 };
@@ -507,42 +507,42 @@ export const inputColors = {
   dark: {
     outlined: {
       default: {
-        fg: "#4B4B4B",
-        placeholder: "#7e7e7e",
-        bg: "#F7F7F7",
-        border: "#E5E5E5",
+        fg: "hsla(0, 0%, 85%, 1)",
+        placeholder: "hsla(0, 0%, 55%, 1)",
+        bg: "hsla(0, 0%, 18%, 1)",
+        border: "hsla(0, 0%, 25%, 1)",
       },
       error: {
         fg: "#E95070",
-        placeholder: "rgba(233, 80, 112, 0.9)",
-        bg: "rgba(233, 80, 112, 0.08)",
+        placeholder: "rgba(233, 80, 112, 0.7)",
+        bg: "rgba(233, 80, 112, 0.10)",
         border: "#E95070",
       },
       disabled: {
-        fg: "#a9a9a9",
-        placeholder: "#bbbbbb",
-        bg: "#F7F7F7",
-        border: "#E5E5E5",
+        fg: "hsla(0, 0%, 40%, 1)",
+        placeholder: "hsla(0, 0%, 35%, 1)",
+        bg: "hsla(0, 0%, 18%, 1)",
+        border: "hsla(0, 0%, 22%, 1)",
       },
     },
     filled: {
       default: {
-        fg: "#4B4B4B",
-        placeholder: "#7e7e7e",
-        bg: "#FFFFFF",
-        border: "#FFFFFF",
+        fg: "hsla(0, 0%, 85%, 1)",
+        placeholder: "hsla(0, 0%, 55%, 1)",
+        bg: "hsla(0, 0%, 22%, 1)",
+        border: "hsla(0, 0%, 22%, 1)",
       },
       error: {
         fg: "#E95070",
-        placeholder: "rgba(233, 80, 112, 0.9)",
-        bg: "rgba(233, 80, 112, 0.08)",
+        placeholder: "rgba(233, 80, 112, 0.7)",
+        bg: "rgba(233, 80, 112, 0.10)",
         border: "#E95070",
       },
       disabled: {
-        fg: "#a9a9a9",
-        placeholder: "#bbbbbb",
-        bg: "#FFFFFF",
-        border: "#FFFFFF",
+        fg: "hsla(0, 0%, 40%, 1)",
+        placeholder: "hsla(0, 0%, 35%, 1)",
+        bg: "hsla(0, 0%, 22%, 1)",
+        border: "hsla(0, 0%, 22%, 1)",
       },
     },
   },
@@ -670,32 +670,32 @@ export const statusColors = {
   },
   dark: {
     primary: {
-      primary: "#2C3891",
-      secondary: "#EFF0F0",
+      primary: "#7D73CC",
+      secondary: "hsla(0, 0%, 22%, 1)",
     },
     success: {
-      primary: "#05970F",
-      secondary: "#EFF0F0",
+      primary: "#2ECC57",
+      secondary: "hsla(0, 0%, 22%, 1)",
     },
     error: {
-      primary: "#FF0004",
-      secondary: "#EFF0F0",
+      primary: "#FF4D4D",
+      secondary: "hsla(0, 0%, 22%, 1)",
     },
     warning: {
-      primary: "#F7941D",
-      secondary: "#EFF0F0",
+      primary: "#FFC107",
+      secondary: "hsla(0, 0%, 22%, 1)",
     },
     info: {
-      primary: "#13ABBC",
-      secondary: "#EFF0F0",
+      primary: "#29C8DB",
+      secondary: "hsla(0, 0%, 22%, 1)",
     },
     secondary: {
-      primary: "#0A62C7",
-      secondary: "#EFF0F0",
+      primary: "#4A9EE0",
+      secondary: "hsla(0, 0%, 22%, 1)",
     },
     neutral: {
-      primary: "#7DBBFF",
-      secondary: "#EFF0F0",
+      primary: "#A3CCFF",
+      secondary: "hsla(0, 0%, 22%, 1)",
     },
   },
 };
@@ -705,7 +705,7 @@ export const elevateColors = {
     primary: "#EFF0F0",
   },
   dark: {
-    primary: "#EFF0F0",
+    primary: "hsla(0, 0%, 25%, 1)",
   },
 };
 
@@ -718,4 +718,8 @@ export const shadowColors = {
     default: "1px 1px 1px rgba(0, 0, 0, 0.15)",
     soft: "1px 1px 1px rgba(0, 0, 0, 0.25)",
   },
+};
+
+export const actionSizes = {
+  small: "28px",
 };

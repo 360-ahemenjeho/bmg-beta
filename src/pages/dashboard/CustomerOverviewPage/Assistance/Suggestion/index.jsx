@@ -1,11 +1,13 @@
 import { radiusTokens, spacingTokens } from "@/constants/theme";
 import { Stack } from "@mui/material";
 import { Typography } from "@/components/ui";
+import useColor from "@/contexts/color/useColor";
 
 /**
  * @param {import("@/types/global.d").SupportSuggestion} props
  */
 export default function Suggestion({ label, icon: Icon, color }) {
+  const { bg } = useColor();
   return (
     <Stack
       gap={spacingTokens.sm}
@@ -13,9 +15,9 @@ export default function Suggestion({ label, icon: Icon, color }) {
       justifyContent="center"
       sx={{
         px: spacingTokens.lg,
-        py: spacingTokens.md,
+        py: spacingTokens.xl,
         borderRadius: radiusTokens.xl,
-        backgroundColor: "#FFFFFF",
+        backgroundColor: bg.tertiary,
       }}
     >
       <Icon fontSize={32} color={color}></Icon>

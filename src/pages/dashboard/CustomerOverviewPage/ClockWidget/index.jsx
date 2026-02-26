@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Stack, Typography } from "@mui/material";
 import { radiusTokens, spacingTokens } from "@/constants/theme";
+import useColor from "@/contexts/color/useColor";
 
 export default function ClockWidget() {
   const [time, setTime] = useState(new Date());
@@ -9,6 +10,8 @@ export default function ClockWidget() {
     const interval = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(interval);
   }, []);
+
+  const { theme } = useColor();
 
   const hours = time.getHours() % 12 || 12;
   const minutes = String(time.getMinutes()).padStart(2, "0");
@@ -26,7 +29,7 @@ export default function ClockWidget() {
       justifyContent="center"
       gap={spacingTokens.sm}
       sx={{
-        backgroundColor: "#3ABFBF",
+        backgroundColor: theme === "dark" ? "#093030" : "#3ABFBF",
         borderRadius: radiusTokens["5xl"],
         padding: spacingTokens.xl,
       }}

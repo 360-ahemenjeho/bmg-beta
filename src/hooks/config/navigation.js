@@ -16,7 +16,7 @@ import {
   HandshakeRegular,
   MoneyRegular,
   PeopleAudienceRegular,
-  PeopleCommunityRegular,
+  PeopleTeamRegular,
   PeopleRegular,
   ProjectionScreenTextSparkleRegular,
   ReceiptRegular,
@@ -72,7 +72,7 @@ export function useNavigationMenu() {
       {
         label: "CRM",
         path: "",
-        icon: PeopleCommunityRegular,
+        icon: PeopleTeamRegular,
         color: "#05970F",
         sub: [
           { label: "Leads", path: "/leads", icon: TargetRegular },

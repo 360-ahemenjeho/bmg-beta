@@ -31,6 +31,7 @@ export default function Checkbox({ size = 16, checked = false, onCheck, accent }
         borderRadius: size * 0.35 + "px",
         cursor: "pointer",
         transition: "background-color 0.35s ease-in-out 0.15s, border 0.25s ease-in-out",
+        flexShrink: 0,
       }}
     >
       {checked && <CheckmarkFilled fontSize={iconSize} color="#ffffff" />}
