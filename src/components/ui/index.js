@@ -10,6 +10,7 @@ export { default as Tabs } from "./Tabs";
 export { default as Tab } from "./Tab";
 export { default as Checkbox } from "./Checkbox";
 export { default as Avatar } from "./Avatar";
-export { default as FilterMenu } from "./FilterMenu";
+export { default as FilterSelect } from "./FilterSelect";
 export { default as SearchBar } from "./SearchBar";
 export { default as FilterField } from "./FilterField";
+export { default as FilterDate } from "./FilterDate";

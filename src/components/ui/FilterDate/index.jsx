@@ -2,15 +2,16 @@ import { radiusTokens } from "@/constants/theme";
 import { useColor } from "@/contexts/color";
 import { Box } from "@mui/material";
 import Button from "./Button";
-import { CircleRegular, DismissFilled } from "@fluentui/react-icons";
+import { CalendarDateRegular, CalendarMonthRegular, DismissFilled } from "@fluentui/react-icons";
 
 /**
  * @param {Object} props
- * @param {import("@/types/global.d.js").FilterLabel} props.label
- * @param {string} props.value
- * @param {() => void} props.onChange
+ * @param {string} props.from
+ * @param {string} props.to
+ * @param {(value: string) => void} props.onFromChange
+ * @param {(value: string) => void} props.onToChange
  */
-export default function FilterMenu({ label, value, onChange }) {
+export default function FilterMenu({ from, to, onFromChange, onToChange }) {
   const { border } = useColor();
   return (
     <Box
@@ -25,15 +26,9 @@ export default function FilterMenu({ label, value, onChange }) {
         "&:hover": { borderColor: border.secondary },
       }}
     >
-      <Button label={label.label} icon={label.icon} br accent={label.accent} />
-      <Button
-        icon={CircleRegular}
-        br
-        accent="green"
-        label="Success"
-        onClick={() => console.log("Hey")}
-      />
-      <Button icon={DismissFilled} onClick={() => console.log("Hey")} />
+      <Button label={from || "From"} icon={CalendarDateRegular} br accent="#5925DC" />
+      <Button icon={CalendarMonthRegular} br accent="#B54708" label={to || "To"} />
+      <Button icon={DismissFilled} />
     </Box>
   );
 }

@@ -4,10 +4,14 @@ import { Box } from "@mui/material";
 import { useColor } from "@/contexts/color";
 import { actionSizes, radius, radiusTokens, spacingTokens, typefaces } from "@/constants/theme";
 
-export default function SearchBar() {
+/**
+ * @param {Object} props
+ * @param {string} props.value
+ * @param {(value: string) => void} props.onChange
+ */
+export default function SearchBar({ value, onChange }) {
   const { main, border, fg, bg, shadow } = useColor();
   const [isOpen, setIsOpen] = useState(false);
-  const [query, setQuery] = useState("");
   /** @type {React.RefObject<HTMLInputElement | null>} */
   const inputRef = useRef(null);
   /** @type {React.RefObject<HTMLDivElement | null>} */
@@ -99,8 +103,8 @@ export default function SearchBar() {
         <Box
           component="input"
           ref={inputRef}
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
           onKeyDown={(e) => e.key === "Escape" && setIsOpen(false)}
           placeholder="Search tasks..."
           sx={{
@@ -120,7 +124,7 @@ export default function SearchBar() {
 
         <Box
           onClick={() => {
-            setQuery("");
+            onChange("");
             setIsOpen(false);
           }}
           sx={{

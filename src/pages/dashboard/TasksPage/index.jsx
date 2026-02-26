@@ -1,16 +1,6 @@
 import { ActionButton } from "@/components/shared";
-import {
-  Avatar,
-  Button,
-  Checkbox,
-  Chip,
-  FilterField,
-  FilterMenu,
-  SearchBar,
-  Table,
-  TableBody,
-  TableHead,
-} from "@/components/ui";
+import { Toolbar } from "@/components/shared/Toolbar";
+import { Avatar, Button, Checkbox, Chip, Table, TableBody, TableHead } from "@/components/ui";
 import { TASK_PRIORITY_VARIANT, TASK_STATUS_VARIANT } from "@/constants/lib";
 import { spacingTokens } from "@/constants/theme";
 import { renderDateTime } from "@/helpers/date";
@@ -29,6 +19,7 @@ import {
   CircleRegular,
 } from "@fluentui/react-icons";
 import { Stack, TableCell, TableRow } from "@mui/material";
+import { useCallback, useState } from "react";
 
 const tasks = [
   {
@@ -50,7 +41,7 @@ const tasks = [
     completedAt: null,
   },
   {
-    id: "#5FGH9",
+    id: "#2SNH9",
     subject: "Prepare backend API docs",
     description:
       "Write and publish comprehensive API documentation for all backend endpoints using Swagger/OpenAPI.",
@@ -68,7 +59,7 @@ const tasks = [
     completedAt: "2026-02-19T13:45:00Z",
   },
   {
-    id: "#5FGH9",
+    id: "#4KGH9",
     subject: "Team standup meeting",
     description: "Daily standup to sync on blockers, progress updates, and priorities for the day.",
     assigneeName: "Mia Chen",
@@ -85,7 +76,7 @@ const tasks = [
     completedAt: null,
   },
   {
-    id: "#5FGH9",
+    id: "#4982H9",
     subject: "Refactor auth flow",
     description:
       "Refactor the authentication flow to support OAuth 2.0 and clean up legacy session handling code.",
@@ -103,7 +94,7 @@ const tasks = [
     completedAt: null,
   },
   {
-    id: "#5FGH9",
+    id: "#7KJH9",
     subject: "Buy groceries",
     description: "Pick up weekly groceries including fruits, vegetables, and pantry staples.",
     assigneeName: "Chinedu Adebayo",
@@ -120,7 +111,7 @@ const tasks = [
     completedAt: "2026-03-05T11:30:00Z",
   },
   {
-    id: "#5FGH9",
+    id: "#5FGH738",
     subject: "Push hotfix to production",
     description:
       "Deploy the critical hotfix addressing the payment processing bug affecting users on checkout.",
@@ -138,7 +129,7 @@ const tasks = [
     completedAt: null,
   },
   {
-    id: "#5FGH9",
+    id: "#348FGH9",
     subject: "Read neuroscience paper",
     description:
       "Read and summarize the latest paper on neuroplasticity and its implications for cognitive training.",
@@ -156,7 +147,7 @@ const tasks = [
     completedAt: null,
   },
   {
-    id: "#5FGH9",
+    id: "#43H5FGH9",
     subject: "Plan next sprint",
     description:
       "Organize and prioritize the backlog, assign tasks, set sprint goals, and prepare the sprint board for the upcoming cycle.",
@@ -174,7 +165,7 @@ const tasks = [
     completedAt: null,
   },
   {
-    id: "#5FGH9",
+    id: "#5FG338H9",
     subject: "Just a plain task with nothing",
     description: null,
     assigneeName: "Jay",
@@ -209,20 +200,46 @@ const columns = [
 ];
 
 export default function TasksPage() {
+  const [filterValues, setFilterValues] = useState({});
+
+  /** @type {import("@/types/global.d").SelectOption[]} */
+  const userOptions = [
+    { label: "Alice", value: "alice" },
+    { label: "Bob", value: "bob" },
+  ];
+
+  /** @type {import("@/types/global.d").FilterConfig[]} */
+  const filters = [
+    { type: "search", key: "query" },
+    { type: "field", key: "field" },
+    {
+      type: "select",
+      key: "user",
+      label: { icon: PersonRegular, label: "User", accent: "#0078D4" },
+      options: userOptions,
+    },
+    { type: "date", fromKey: "dateFrom", toKey: "dateTo" },
+  ];
+
+  const handleFilterChange = useCallback(
+    (/** @type {string} */ key, /** @type {string} */ value) => {
+      setFilterValues((prev) => ({ ...prev, [key]: value }));
+    },
+    [],
+  );
+
+  const handleAdd = useCallback(() => {
+    console.log("Add Task clicked, current filters:", filterValues);
+  }, [filterValues]);
+
   return (
     <Stack gap={spacingTokens.xl}>
-      <Stack direction="row" alignItems="center" justifyContent="space-between">
-        <Stack direction="row" alignItems="center" gap={spacingTokens.sm}>
-          <SearchBar></SearchBar>
-          <FilterField />
-          <FilterMenu
-            label={{ icon: PersonRegular, label: "User", accent: "#0078D4" }}
-            value=""
-            onChange={() => console.log("Opps!")}
-          />
-        </Stack>
-        <Button>Add Task</Button>
-      </Stack>
+      <Toolbar
+        filters={filters}
+        filterValues={filterValues}
+        onFilterChange={handleFilterChange}
+        action={<Button onClick={handleAdd}>Add Task</Button>}
+      />
       <Table>
         <TableHead columns={columns}></TableHead>
         <TableBody loading={false} count={tasks.length} span={columns.length}>
