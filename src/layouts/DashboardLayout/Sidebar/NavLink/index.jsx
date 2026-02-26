@@ -22,7 +22,7 @@ export default function NavLink({
   x = spacing[3],
   subNavOpen = false,
 }) {
-  const { elevate, shadow, fg } = useColor();
+  const { elevate, shadow, fg, theme } = useColor();
 
   return (
     <Box
@@ -80,7 +80,8 @@ export default function NavLink({
           <ChevronLeftFilled
             fontSize={12}
             style={{
-              backgroundColor: "rgba(0, 0, 0, 0.1)",
+              backgroundColor:
+                theme === "light" ? "rgba(0, 0, 0, 0.1)" : "rgba(255, 255, 255, 0.1)",
               borderRadius: "4px",
             }}
           ></ChevronLeftFilled>

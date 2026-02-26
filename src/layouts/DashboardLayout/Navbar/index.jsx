@@ -24,7 +24,7 @@ export default function Navbar({ onToggle }) {
     if (spinning) return;
     setSpinning(true);
     toggleTheme();
-    setTimeout(() => setSpinning(false), 600);
+    setTimeout(() => setSpinning(false), 500);
   };
 
   const isDark = mode === "dark";

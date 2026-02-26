@@ -25,9 +25,6 @@ export default function Tabs({ children, tabs, active, onChange, round = 4 }) {
       >
         {tabs.map((item, index) => {
           const _active = active === item.key;
-          console.log("Is active ");
-          console.log(_active);
-
           return (
             <Box
               component="div"
