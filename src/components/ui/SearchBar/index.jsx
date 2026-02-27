@@ -112,6 +112,7 @@ export default function SearchBar({ value, onChange }) {
             fontWeight: 400,
             color: fg.secondary,
             fontFamily: typefaces.default,
+            backgroundColor: "transparent",
             outline: "none",
             border: "none",
             "&::placeholder": {
