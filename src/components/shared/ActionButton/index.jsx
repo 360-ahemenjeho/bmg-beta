@@ -1,14 +1,15 @@
-import { DeleteRegular, EditRegular } from "@fluentui/react-icons";
+import { DeleteRegular, EditRegular, EyeRegular } from "@fluentui/react-icons";
 
 /**
  * @param {Object} props
- * @param {"edit" | "delete"} props.variation
+ * @param {"edit" | "delete" | "preview"} props.variation
  * @param {() => void} props.onClick
  */
 export default function ActionButton({ variation, onClick }) {
   const icons = {
     edit: EditRegular,
     delete: DeleteRegular,
+    preview: EyeRegular,
   };
 
   const Icon = icons[variation];

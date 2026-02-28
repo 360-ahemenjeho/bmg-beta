@@ -1,6 +1,7 @@
 import {
   fontSizes,
   inputHeight,
+  inputPadding,
   radius,
   radiusTokens,
   spacing,
@@ -118,21 +119,21 @@ function configureTheme({
             gap: spacing[1],
             "&.MuiButton-sizeLarge": {
               fontSize: "15px",
-              padding: "1rem 1.25rem",
+              padding: "0.9rem 1.25rem",
             },
             "&.MuiButton-sizeLarge.icon": {
-              padding: "1rem",
+              padding: "0.9rem",
             },
             "&.MuiButton-sizeMedium": {
               fontSize: "14px",
-              padding: "0.7rem 1.25rem",
+              padding: "0.6rem 1rem",
             },
             "&.MuiButton-sizeMedium.icon": {
               padding: "0.5rem",
             },
             "&.MuiButton-sizeSmall": {
-              fontSize: "13px",
-              padding: "0.8rem 1.25rem",
+              fontSize: "14px",
+              padding: "0.5rem 1rem",
             },
             "&.MuiButton-sizeSmall.icon": {
               padding: "0.3rem",
@@ -251,16 +252,18 @@ function configureTheme({
       MuiOutlinedInput: {
         styleOverrides: {
           root: {
-            padding: "0px 12px",
+            padding: `${inputPadding.y} ${inputPadding.x}`,
             fontSize: fontSizes.body1,
-            borderRadius: radius[3],
             boxSizing: "border-box",
             color: input["outlined"]["default"]["fg"],
             height: inputHeight,
+            alignItems: "center",
+            gap: spacingTokens.sm,
+            borderRadius: radius[4],
             backgroundColor: input["outlined"]["default"]["bg"],
             "&.MuiInputBase-multiline": {
               height: "auto",
-              padding: "18px",
+              padding: inputPadding.x,
             },
             "& fieldset": {
               borderColor: input["outlined"]["default"]["border"],
@@ -312,14 +315,16 @@ function configureTheme({
           root: {
             boxShadow: "inset 0px 2px 2px rgba(0, 0, 0, 0.2) !important",
             fontSize: fontSizes.body1,
-            borderRadius: radius[3],
             boxSizing: "border-box",
+            borderRadius: radius[4],
             color: input["filled"]["default"]["fg"],
-            padding: "0px 12px",
+            padding: `${inputPadding.y} ${inputPadding.x}`,
             height: inputHeight,
+            alignItems: "center",
+            gap: spacingTokens.sm,
             "&.MuiInputBase-multiline": {
               height: "auto",
-              padding: "18px",
+              padding: inputPadding.x,
             },
             backgroundColor: input["filled"]["default"]["bg"],
             border: `1px solid ${input["filled"]["default"]["border"]}`,
@@ -368,10 +373,12 @@ function configureTheme({
         styleOverrides: {
           root: {
             fontSize: fontSizes.body1,
-            borderRadius: radius[3],
+            borderRadius: radius[4],
             boxSizing: "border-box",
-            padding: "0px 12px",
+            padding: `${inputPadding.y} ${inputPadding.x}`,
             height: inputHeight,
+            alignItems: "center",
+            gap: spacingTokens.sm,
             "& .MuiSelect-select.MuiSelect-filled.MuiFilledInput-input": {
               backgroundColor: `transparent !important`,
               boxShadow: "none !important",
@@ -461,10 +468,10 @@ function configureTheme({
             "&.MuiFormControlLabel-root": {
               margin: 0,
               "& .MuiFormControlLabel-label": {
-                fontWeight: 500,
+                fontWeight: 400,
                 lineHeight: 1,
                 marginLeft: spacingTokens.md,
-                color: "#4B4B4B",
+                color: fg.primary,
                 fontSize: fontSizes.caption,
               },
             },
@@ -485,8 +492,9 @@ function configureTheme({
           root: {
             fontSize: fontSizes.caption,
             lineHeight: 1,
-            fontWeight: 500,
-            color: "#4B4B4B",
+            fontWeight: 700,
+            color: input.outlined.default.fg,
+            // textAlign: "right",
             "& .MuiFormLabel-asterisk": {
               color: main.error,
             },
@@ -497,9 +505,10 @@ function configureTheme({
         styleOverrides: {
           root: {
             fontSize: fontSizes.caption,
-            fontWeight: 500,
+            fontWeight: 400,
             lineHeight: 1,
-            color: "#4B4B4B",
+            color: fg.secondary,
+            // textAlign: "right",
           },
         },
       },
@@ -509,14 +518,15 @@ function configureTheme({
             fontSize: fontSizes.caption,
             marginLeft: 0,
             marginRight: 0,
-            color: "#4B4B4B",
+            color: fg.secondary,
             lineHeight: 1,
-            fontWeight: 500,
+            fontWeight: 400,
+            // textAlign: "right",
             "&.center": {
               textAlign: "center",
             },
             "&.Mui-error": {
-              fontWeight: 500,
+              fontWeight: 400,
               color: input.outlined.error.fg,
             },
           },
@@ -570,7 +580,7 @@ function configureTheme({
           root: {
             borderBottom: `1px solid ${mode === "light" ? "rgba(0,0,0,0.1)" : "rgba(220,220,255,0.1)"}`,
             whiteSpace: "nowrap",
-            padding: `6px ${spacing[3]}`,
+            padding: `8px ${spacing[3]}`,
           },
           head: {
             padding: `8px ${spacing[3]}`,
@@ -727,6 +737,15 @@ function configureTheme({
         styleOverrides: {
           root: {
             padding: `${spacingTokens.md} !important`,
+          },
+        },
+      },
+      MuiBackdrop: {
+        styleOverrides: {
+          root: {
+            backgroundColor:
+              mode === "dark" ? "rgba(155, 162, 176, 0.7)" : "rgba(255, 255, 255, 0.7)",
+            backdropFilter: "none",
           },
         },
       },

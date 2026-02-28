@@ -37,8 +37,7 @@ export default function Crumb({ active, nav }) {
           backgroundColor: elevate.primary,
           boxShadow: shadow.default,
           borderRadius: radius[2],
-          padding: "2px 6px",
-          fontSize: "10px",
+          padding: "3px 6px",
           fontWeight: 700,
           display: "flex",
           alignItems: "center",
@@ -46,10 +45,11 @@ export default function Crumb({ active, nav }) {
           gap: spacing[1],
           "& > *": {
             color: active ? main.primary : fg.primary,
+            fontSize: "11px",
           },
         }}
       >
-        {nav.icon && <nav.icon fontSize={16} style={{ display: "block" }}></nav.icon>}
+        {nav.icon && <nav.icon style={{ display: "block" }}></nav.icon>}
         <span style={{ lineHeight: 1 }}>{nav?.label}</span>
       </Box>
     </Box>

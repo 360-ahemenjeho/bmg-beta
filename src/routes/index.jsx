@@ -2,6 +2,7 @@ import { AuthLayout, DashboardLayout } from "@/layouts";
 import { LoginPage } from "@/pages/auth";
 import {
   AdminOverviewPage,
+  CompaniesPage,
   CustomerOverviewPage,
   DesignSystemPage,
   TasksPage,
@@ -25,6 +26,7 @@ export default function Routes() {
           <>
             <Route path="/tasks" element={<TasksPage />} />
             <Route path="/" element={<CustomerOverviewPage />} />
+            <Route path="/companies" element={<CompaniesPage />} />
           </>
         )}
       </Route>

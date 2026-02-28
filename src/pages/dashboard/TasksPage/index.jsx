@@ -1,12 +1,12 @@
+import { AddTaskModal } from "@/components/feature";
 import { ActionButton } from "@/components/shared";
-import { Toolbar } from "@/components/shared/Toolbar";
+import { Toolbar } from "@/components/shared";
 import { Avatar, Button, Checkbox, Chip, Table, TableBody, TableHead } from "@/components/ui";
 import { TASK_PRIORITY_VARIANT, TASK_STATUS_VARIANT } from "@/constants/lib";
 import { spacingTokens } from "@/constants/theme";
 import { renderDateTime } from "@/helpers/date";
 import { renderText } from "@/helpers/text";
 import {
-  CheckboxCheckedRegular,
   NumberSymbolRegular,
   TaskListSquareLtrRegular,
   PersonRegular,
@@ -17,6 +17,8 @@ import {
   ClockAlarmRegular,
   CircleSmallFilled,
   CircleRegular,
+  AddRegular,
+  CheckboxUncheckedRegular,
 } from "@fluentui/react-icons";
 import { Stack, TableCell, TableRow } from "@mui/material";
 import { useCallback, useState } from "react";
@@ -185,7 +187,7 @@ const tasks = [
 
 /** @type {Array<import("@/types/global.d").TableColumn>} */
 const columns = [
-  { label: "", icon: CheckboxCheckedRegular },
+  { label: "", icon: CheckboxUncheckedRegular },
   { label: "ID", icon: NumberSymbolRegular },
   { label: "Subject", icon: TaskListSquareLtrRegular },
   { label: "Assignee", icon: PersonRegular },
@@ -194,13 +196,12 @@ const columns = [
   { label: "Due Date", icon: CalendarDateRegular },
   { label: "Reminder", icon: ClockAlarmRegular },
   { label: "Category", icon: FolderRegular },
-  // { label: "Tags", icon: TagRegular },
-  // { label: "Description", icon: NotepadRegular },
-  { label: "", icon: CircleRegular, align: "right" },
+  { label: "Action", icon: CircleRegular, align: "left" },
 ];
 
 export default function TasksPage() {
   const [filterValues, setFilterValues] = useState({});
+  const [openAdd, setOpenAdd] = useState(false);
 
   /** @type {import("@/types/global.d").SelectOption[]} */
   const userOptions = [
@@ -215,7 +216,7 @@ export default function TasksPage() {
     {
       type: "select",
       key: "user",
-      label: { icon: PersonRegular, label: "User", accent: "#0078D4" },
+      label: { icon: PersonRegular, label: "Assignee", accent: "#0078D4" },
       options: userOptions,
     },
     { type: "date", fromKey: "dateFrom", toKey: "dateTo" },
@@ -228,54 +229,76 @@ export default function TasksPage() {
     [],
   );
 
-  const handleAdd = useCallback(() => {
-    console.log("Add Task clicked, current filters:", filterValues);
-  }, [filterValues]);
+  function handleAdd() {
+    setOpenAdd(true);
+  }
 
   return (
-    <Stack gap={spacingTokens.xl}>
-      <Toolbar
-        filters={filters}
-        filterValues={filterValues}
-        onFilterChange={handleFilterChange}
-        action={<Button onClick={handleAdd}>Add Task</Button>}
-      />
-      <Table>
-        <TableHead columns={columns}></TableHead>
-        <TableBody loading={false} count={tasks.length} span={columns.length}>
-          {tasks.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell>
-                <Checkbox></Checkbox>
-              </TableCell>
-              <TableCell>{renderText(row.id)}</TableCell>
-              <TableCell>{renderText(row.subject)}</TableCell>
-              <TableCell>{row.assigneeName && <Avatar name={row.assigneeName}></Avatar>}</TableCell>
-              <TableCell>
-                <Chip
-                  icon={<CircleSmallFilled></CircleSmallFilled>}
-                  label={row.status}
-                  color={TASK_STATUS_VARIANT[row.status]}
-                  variant="outlined"
-                />
-              </TableCell>
-              <TableCell>
-                <Chip
-                  icon={<CircleSmallFilled></CircleSmallFilled>}
-                  label={row.priority}
-                  color={TASK_PRIORITY_VARIANT[row.priority]}
-                />
-              </TableCell>
-              <TableCell>{renderDateTime(row.dueDate || "", row.time || "")}</TableCell>
-              <TableCell>{renderText(row.reminder)}</TableCell>
-              <TableCell>{renderText(row.category)}</TableCell>
-              <TableCell align="right">
-                <ActionButton variation="delete" onClick={() => console.log("null")}></ActionButton>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </Stack>
+    <>
+      <Stack gap={spacingTokens.xl}>
+        <Toolbar
+          filters={filters}
+          filterValues={filterValues}
+          onFilterChange={handleFilterChange}
+          action={
+            <Button onClick={handleAdd} startContent={<AddRegular />}>
+              Task
+            </Button>
+          }
+        />
+        <Table>
+          <TableHead columns={columns}></TableHead>
+          <TableBody loading={false} count={tasks.length} span={columns.length}>
+            {tasks.map((row) => (
+              <TableRow key={row.id}>
+                <TableCell>
+                  <Checkbox></Checkbox>
+                </TableCell>
+                <TableCell>{renderText(row.id)}</TableCell>
+                <TableCell>{renderText(row.subject)}</TableCell>
+                <TableCell>
+                  {row.assigneeName && <Avatar name={row.assigneeName}></Avatar>}
+                </TableCell>
+                <TableCell>
+                  <Chip
+                    icon={<CircleSmallFilled></CircleSmallFilled>}
+                    label={row.status}
+                    color={TASK_STATUS_VARIANT[row.status]}
+                    variant="outlined"
+                  />
+                </TableCell>
+                <TableCell>
+                  <Chip
+                    icon={<CircleSmallFilled></CircleSmallFilled>}
+                    label={row.priority}
+                    color={TASK_PRIORITY_VARIANT[row.priority]}
+                  />
+                </TableCell>
+                <TableCell>{renderDateTime(row.dueDate || "", row.time || "")}</TableCell>
+                <TableCell>{renderText(row.reminder)}</TableCell>
+                <TableCell>{renderText(row.category)}</TableCell>
+                <TableCell align="right">
+                  <Stack direction="row" gap={spacingTokens.sm}>
+                    <ActionButton
+                      variation="edit"
+                      onClick={() => console.log("null")}
+                    ></ActionButton>
+                    <ActionButton
+                      variation="preview"
+                      onClick={() => console.log("null")}
+                    ></ActionButton>
+                    <ActionButton
+                      variation="delete"
+                      onClick={() => console.log("null")}
+                    ></ActionButton>
+                  </Stack>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </Stack>
+      {openAdd && <AddTaskModal open onClose={() => setOpenAdd(false)} />}
+    </>
   );
 }

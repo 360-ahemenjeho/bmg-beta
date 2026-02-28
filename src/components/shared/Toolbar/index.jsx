@@ -10,7 +10,7 @@ import FilterRenderer from "./FilterRenderer";
  * @param {React.ReactNode} [props.action] - Optional element rendered on the trailing edge (e.g. a CTA button). Defaults to nothing.
  * @returns {React.ReactElement}
  */
-export function Toolbar({ filters, filterValues, onFilterChange, action }) {
+export default function Toolbar({ filters, filterValues, onFilterChange, action }) {
   return (
     <Stack
       direction="row"

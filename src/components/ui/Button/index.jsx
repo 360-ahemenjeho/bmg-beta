@@ -18,7 +18,7 @@ export default function Button({
   startContent,
   endContent,
   loading = false,
-  round = 3,
+  round = 4,
   disabled,
   icon,
   noShadow,

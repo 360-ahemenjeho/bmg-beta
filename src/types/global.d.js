@@ -78,4 +78,10 @@
  * @typedef {SearchFilterConfig | FieldFilterConfig | SelectFilterConfig | DateFilterConfig} FilterConfig
  */
 
+/**
+ * @typedef {Object} ModalConfig
+ * @property {boolean} open
+ * @property {() => void} onClose
+ */
+
 export {};

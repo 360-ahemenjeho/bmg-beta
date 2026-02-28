@@ -4,6 +4,5 @@ export { default as BarChart } from "./BarChart";
 export { default as InsightTag } from "./InsightTag";
 export { default as HorizontalBar } from "./HorizontalBar";
 export { default as ActionButton } from "./ActionButton";
-export { default as TaskMiniCard } from "./TaskMiniCard";
 export { default as Crumb } from "./Crumb";
-export { default as TextField } from "./TextField";
+export { default as Toolbar } from "./Toolbar";

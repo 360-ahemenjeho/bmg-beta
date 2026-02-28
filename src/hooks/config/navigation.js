@@ -64,8 +64,8 @@ export function useNavigationMenu() {
         color: "#F1592A",
       },
       {
-        label: "Teams",
-        path: "/teams",
+        label: "Staff",
+        path: "/staff",
         icon: FolderPeopleRegular,
         color: "#05A6F0",
       },

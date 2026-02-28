@@ -1,8 +1,8 @@
 import { radiusTokens } from "@/constants/theme";
 import { useColor } from "@/contexts/color";
 import { Box } from "@mui/material";
-import Button from "./Button";
 import { CircleRegular, DismissFilled } from "@fluentui/react-icons";
+import { TriggerButton } from "@/components/ui";
 
 /**
  * @param {Object} props
@@ -11,11 +11,12 @@ import { CircleRegular, DismissFilled } from "@fluentui/react-icons";
  * @param {(value: string) => void} props.onChange
  */
 export default function FilterSelect({ label, value, onChange }) {
-  const { border } = useColor();
+  const { border, fg } = useColor();
   return (
     <Box
       display="grid"
       gridTemplateColumns="1fr 1fr auto"
+      alignItems="center"
       sx={{
         borderRadius: radiusTokens.md,
         border: `1px solid ${border.primary}`,
@@ -25,15 +26,32 @@ export default function FilterSelect({ label, value, onChange }) {
         "&:hover": { borderColor: border.secondary },
       }}
     >
-      <Button label={label.label} icon={label.icon} br accent={label.accent} />
-      <Button
+      <TriggerButton
+        round={0}
+        noBorder
+        label={label.label}
+        icon={label.icon}
+        br
+        accent={label.accent}
+        fullWidth
+      />
+      <TriggerButton
+        round={0}
+        noBorder
         icon={CircleRegular}
         br
         accent="green"
         label="Success"
         onClick={() => console.log("Hey")}
+        fullWidth
       />
-      <Button icon={DismissFilled} onClick={() => console.log("Hey")} />
+      <TriggerButton
+        round={0}
+        noBorder
+        icon={DismissFilled}
+        accent={fg.secondary}
+        onClick={() => console.log("Hey")}
+      />
     </Box>
   );
 }

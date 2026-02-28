@@ -20,6 +20,7 @@ export default function FilterField() {
         color: fg.secondary,
         bgcolor: "transparent",
         transition: "border-color 0.18s, color 0.18s, box-shadow 0.18s",
+        verticalAlign: "middle",
         cursor: "pointer",
         "&:hover": {
           borderColor: ACCENT,

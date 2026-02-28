@@ -1,5 +1,4 @@
-import { TextField } from "@/components/shared";
-import { Button } from "@/components/ui";
+import { Button, Input } from "@/components/ui";
 import { spacingTokens } from "@/constants/theme";
 import { Stack } from "@mui/material";
 import { useState } from "react";
@@ -16,7 +15,7 @@ export default function LoginPage() {
 
   return (
     <Stack gap={spacingTokens.md}>
-      <TextField
+      <Input
         label="Email"
         name="email"
         value={(name) => formData[name]}
@@ -25,7 +24,7 @@ export default function LoginPage() {
         error={(name) => formErrors?.[name]}
       />
 
-      <TextField
+      <Input
         label="Password"
         name="password"
         value={(name) => formData[name]}

@@ -10,7 +10,7 @@ export const fontSizes = {
 };
 
 export const typefaces = {
-  default: "Inter",
+  default: "Roboto",
 };
 
 export const buttonColors = {
@@ -444,8 +444,8 @@ export const foregroundColors = {
   },
   dark: {
     primary: "#F5F5F5",
-    secondary: "#A1A3C3",
-    tertiary: "#717396",
+    secondary: "hsla(0, 0%, 55%, 1)",
+    tertiary: "hsla(0, 0%, 65%, 1)",
     "main-primary": mainColors.dark.primary,
   },
 };
@@ -713,13 +713,22 @@ export const shadowColors = {
   light: {
     default: "1px 1px 1px rgba(0, 0, 0, 0.25)",
     soft: "1px 1px 1px rgba(0, 0, 0, 0.05)",
+    spread: "0px 0px 2px rgba(0, 0, 0, 0.25)",
+    spreadSoft: "0px 0px 4px rgba(0, 0, 0, 0.05)",
   },
   dark: {
     default: "1px 1px 1px rgba(0, 0, 0, 0.15)",
     soft: "1px 1px 1px rgba(0, 0, 0, 0.25)",
+    spread: "0px 0px 2px rgba(0, 0, 0, 0.15)",
+    spreadSoft: "0px 0px 4px rgba(0, 0, 0, 0.25)",
   },
 };
 
 export const actionSizes = {
-  small: "28px",
+  small: "26px",
+};
+
+export const inputPadding = {
+  x: spacing[3],
+  y: 0,
 };

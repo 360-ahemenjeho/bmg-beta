@@ -1,8 +1,9 @@
 import { radiusTokens } from "@/constants/theme";
 import { useColor } from "@/contexts/color";
 import { Box } from "@mui/material";
-import Button from "./Button";
-import { CalendarDateRegular, CalendarMonthRegular, DismissFilled } from "@fluentui/react-icons";
+import { CalendarDayRegular, CalendarRegular, DismissFilled } from "@fluentui/react-icons";
+import { useRef } from "react";
+import { TriggerButton } from "@/components/ui";
 
 /**
  * @param {Object} props
@@ -11,8 +12,19 @@ import { CalendarDateRegular, CalendarMonthRegular, DismissFilled } from "@fluen
  * @param {(value: string) => void} props.onFromChange
  * @param {(value: string) => void} props.onToChange
  */
-export default function FilterMenu({ from, to, onFromChange, onToChange }) {
-  const { border } = useColor();
+export default function FilterDate({ from, to, onFromChange, onToChange }) {
+  const { border, fg } = useColor();
+  const fromInputRef = useRef(/** @type {HTMLInputElement | null} */ (null));
+  const toInputRef = useRef(/** @type {HTMLInputElement | null} */ (null));
+
+  const handleFromClick = () => {
+    fromInputRef.current?.showPicker();
+  };
+
+  const handleToClick = () => {
+    toInputRef.current?.showPicker();
+  };
+
   return (
     <Box
       display="grid"
@@ -26,9 +38,50 @@ export default function FilterMenu({ from, to, onFromChange, onToChange }) {
         "&:hover": { borderColor: border.secondary },
       }}
     >
-      <Button label={from || "From"} icon={CalendarDateRegular} br accent="#5925DC" />
-      <Button icon={CalendarMonthRegular} br accent="#B54708" label={to || "To"} />
-      <Button icon={DismissFilled} />
+      <TriggerButton
+        round={0}
+        noBorder
+        label={from || "From"}
+        icon={CalendarDayRegular}
+        br
+        accent="#5925DC"
+        onClick={handleFromClick}
+        fullWidth
+      />
+      <TriggerButton
+        round={0}
+        noBorder
+        label={to || "To"}
+        icon={CalendarRegular}
+        br
+        accent="#B54708"
+        onClick={handleToClick}
+        fullWidth
+      />
+
+      <TriggerButton
+        round={0}
+        noBorder
+        icon={DismissFilled}
+        accent={fg.secondary}
+        onClick={() => console.log("Hey")}
+      />
+
+      <input
+        ref={fromInputRef}
+        type="date"
+        onChange={(e) => onFromChange?.(e.target.value)}
+        style={{ position: "absolute", opacity: 0, pointerEvents: "none", width: 0, height: 0 }}
+        tabIndex={-1}
+      />
+
+      <input
+        ref={toInputRef}
+        type="date"
+        onChange={(e) => onToChange?.(e.target.value)}
+        style={{ position: "absolute", opacity: 0, pointerEvents: "none", width: 0, height: 0 }}
+        tabIndex={-1}
+      />
     </Box>
   );
 }

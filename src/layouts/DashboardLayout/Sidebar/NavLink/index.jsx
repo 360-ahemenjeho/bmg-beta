@@ -38,12 +38,13 @@ export default function NavLink({
         py: y,
         px: x,
         lineHeight: 1,
+        verticalAlign: "middle",
         backgroundColor: active ? elevate.primary : "transparent",
         boxShadow: active ? shadow.default : "none",
         borderRadius: radiusTokens.md,
         flexShrink: 0,
         cursor: "pointer",
-        color: fg.secondary,
+        color: active ? fg.primary : fg.secondary,
         transition: "background-color 0.35s ease-in-out, color 0.35s ease-in-out 0.25s",
         "& *": {
           flexShrink: 0,
@@ -66,13 +67,20 @@ export default function NavLink({
         },
       }}
     >
-      <Stack alignItems="center" justifyContent="center">
-        <nav.icon
-          fontSize={20}
-          style={{ display: "block", color: nav?.color ? nav.color : fg.secondary }}
-        ></nav.icon>
-      </Stack>
-      <Box component="p" lineHeight={1} sx={{ padding: 0, margin: 0, userSelect: "none" }}>
+      <nav.icon
+        fontSize={18}
+        style={{ display: "block", color: nav?.color ? nav.color : fg.secondary }}
+      ></nav.icon>
+      <Box
+        component="span"
+        sx={{
+          userSelect: "none",
+          lineHeight: 1,
+          display: "flex",
+          alignItems: "center",
+          verticalAlign: "middle",
+        }}
+      >
         {nav?.label}
       </Box>
       {nav?.sub && nav?.sub?.length > 0 && (

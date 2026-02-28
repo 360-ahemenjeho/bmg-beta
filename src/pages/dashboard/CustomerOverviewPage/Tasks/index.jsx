@@ -4,7 +4,7 @@ import { useTab } from "@/hooks/config/tab";
 import { AddFilled } from "@fluentui/react-icons";
 import { Stack } from "@mui/material";
 import { tabs } from "./lib";
-import { TaskMiniCard } from "@/components/shared";
+import { TaskMiniCard } from "@/components/feature";
 import { useState } from "react";
 
 const myTasksData = [

@@ -1,4 +1,4 @@
-import { CheckboxCheckedRegular, GlanceRegular } from "@fluentui/react-icons";
+import { BuildingRegular, CheckboxCheckedRegular, GlanceRegular } from "@fluentui/react-icons";
 
 /** @type {Record<string, import("@mui/material").ChipProps["color"]>} */
 export const TASK_STATUS_VARIANT = {
@@ -17,6 +17,13 @@ export const TASK_PRIORITY_VARIANT = {
   medium: "primary",
 };
 
+/** @type {Record<string, import("@mui/material").ChipProps["color"]>} */
+export const COMPANY_STATUS_VARIANT = {
+  lead: "success",
+  customer: "primary",
+  prospect: "warning",
+};
+
 /** @type {Record<string, Omit<import("@/types/global.d.js").NavItem, "path" | "sub">>} */
 export const namedRoutes = {
   "/": {
@@ -26,5 +33,9 @@ export const namedRoutes = {
   "/tasks": {
     label: "Tasks",
     icon: CheckboxCheckedRegular,
+  },
+  "/companies": {
+    label: "Companies",
+    icon: BuildingRegular,
   },
 };
